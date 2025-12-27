@@ -15,3 +15,7 @@ build/
 # OS/editor
 .DS_Store
 .vscode/
+
+# copilot instructions
+**/copilot-instructions.md
+**/.github/copilot-instructions.md
