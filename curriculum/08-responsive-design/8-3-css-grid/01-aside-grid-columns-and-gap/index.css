@@ -1,0 +1,65 @@
+html, body {
+    margin: 1em;
+    padding: 0;
+}
+
+/* ==============================
+   GRID CONTAINER
+   ============================== */
+
+.grid-container {
+    border: 2px solid black;
+
+    /* 1. Turn this element into a grid container */
+    /* This alone does NOT change the visual layout */
+    display: grid;
+
+    /*
+      At this point:
+      - Children become grid items
+      - Margins no longer collapse
+      - Grid is active, but nothing is explicitly defined yet
+    */
+
+    /* 2. Explicitly define columns */
+    /* Two columns: first is 5em, second is 10em */
+    grid-template-columns: 5em 10em;
+
+    /*
+      Result:
+      - Items flow left to right across columns
+      - Extra items wrap into new rows automatically
+      - Rows are implicitly created
+    */
+
+    /* 3. Control spacing BETWEEN grid items */
+    gap: 0.5em;
+
+    /*
+      Important:
+      - gap adds space between grid items only
+      - it does NOT add space between items and the container border
+    */
+}
+
+/* ==============================
+   GRID ITEMS
+   ============================== */
+
+.grid-item {
+    background-color: lightgreen;
+    padding: 0.2em;
+    text-align: center;
+    font-size: 2em;
+    color: black;
+    border: 1px solid #999;
+
+    /* Try uncommenting these to see margin behavior */
+    /* margin: 0.5em; */
+
+    /*
+      Because this is inside a grid:
+      - Margins DO NOT collapse
+      - Each margin is fully respected
+    */
+}
