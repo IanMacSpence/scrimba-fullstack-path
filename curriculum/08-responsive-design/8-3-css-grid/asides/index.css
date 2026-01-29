@@ -1,0 +1,99 @@
+/* =========================================
+   02-aside-fr-units — annotated learning file
+   ========================================= */
+
+html, body {
+  margin: 1em;
+  padding: 0;
+}
+
+.grid-container {
+  display: grid;
+
+  /* gap creates spacing BETWEEN items.
+     IMPORTANT: gap takes up real space, so it affects how wide columns can be. */
+  gap: 0.5em;
+
+  border: 2px solid black;
+
+  /* ---------------------------------------------------------
+     STARTING POINT (your current code):
+     Fixed-width columns are inflexible and can cause:
+     - empty space when the container is wide
+     - overflow / horizontal scrolling when the container is narrow
+     --------------------------------------------------------- */
+  /* grid-template-columns: 5em 5em 5em 5em; */
+
+  /* ---------------------------------------------------------
+     WHY "25%" COLUMNS BREAK WHEN gap EXISTS:
+     If you try:
+       grid-template-columns: 25% 25% 25% 25%;
+     that's 100% width *plus* the 3 gaps between the 4 columns.
+     So the last column "overflows" because the total is > 100%.
+     --------------------------------------------------------- */
+  /* grid-template-columns: 25% 25% 25% 25%; */
+
+  /* ---------------------------------------------------------
+     "FIXING" WITH calc() GETS UGLY FAST:
+     You might think:
+       calc(25% - 0.5em)
+     But there are 3 gaps across the row, not 4,
+     so each column should subtract 3/4 of the total gap width.
+     That becomes:
+       calc(25% - (0.5em * 3 / 4))
+     It works, but it’s painful and hard to maintain.
+     --------------------------------------------------------- */
+  /* grid-template-columns: 
+      calc(25% - (0.5em * 3 / 4))
+      calc(25% - (0.5em * 3 / 4))
+      calc(25% - (0.5em * 3 / 4))
+      calc(25% - (0.5em * 3 / 4));
+  */
+
+  /* ---------------------------------------------------------
+     THE GRID-SPECIFIC SOLUTION: fr units
+     fr = "fraction of the available space"
+     KEY IDEA:
+       Available space = container width MINUS total gaps
+     So Grid automatically accounts for gap for you.
+     --------------------------------------------------------- */
+
+  /* ✅ 4 equal columns that fill the container (no overflow from gap math) */
+  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+
+  /* You could also write the same thing as:
+     grid-template-columns: repeat(4, 1fr);
+     but the lesson uses the explicit 4 values.
+  */
+     /* grid-template-columns: repeat(4, 1fr); */
+  /* ---------------------------------------------------------
+     Try these ONE AT A TIME to feel what changes:
+     --------------------------------------------------------- */
+
+  /* ✅ Make the first column "shrink-to-fit" its content
+     The other columns split the remaining space equally. */
+  /* grid-template-columns: auto 1fr 1fr 1fr; */
+
+  /* ✅ Weighting fractions:
+     Total fractions = 2 + 1 + 1 + 1 = 5
+     First column gets 2/5 of available space
+     Others get 1/5 each */
+  /* grid-template-columns: 2fr 1fr 1fr 1fr; */
+
+  /* ✅ Mix auto + weighted fr:
+     First column stays content-sized, remaining space divided 2:1:1 */
+  grid-template-columns: auto 2fr 1fr 1fr;
+}
+
+.grid-item {
+  background-color: lightgreen;
+  padding: 0.2em;
+  text-align: center;
+  font-size: 2em;
+  color: black;
+  border: 1px solid #999;
+
+  /* Tip for learning: add a min-width to force overflow sooner
+     so you can see where layouts break. */
+  /* min-width: 3ch; */
+}
