@@ -115,3 +115,15 @@
 :where([hidden]:not([hidden="until-found"])) {
   display: none !important;
 }
+
+/* End of CSS reset */
+
+#root {
+  height: 100%;
+}
+
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  color: #F5F5F5;
+}

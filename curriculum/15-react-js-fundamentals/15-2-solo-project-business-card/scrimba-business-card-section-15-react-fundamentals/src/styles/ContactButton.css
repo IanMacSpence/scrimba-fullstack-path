@@ -1,0 +1,23 @@
+.contact-button{
+    display: flex;
+    padding: 0.5em 0;
+    width: 40%;
+    text-decoration: none;
+    border-radius: 6px;
+    gap: 0.5em;
+    justify-content: center;
+    
+
+}
+
+
+
+.email-btn{
+    background-color: #fff;
+    color: #1E1F26;
+}
+
+.linkedin-btn {
+    background-color: #5093E2;
+    color: #fff;
+}
