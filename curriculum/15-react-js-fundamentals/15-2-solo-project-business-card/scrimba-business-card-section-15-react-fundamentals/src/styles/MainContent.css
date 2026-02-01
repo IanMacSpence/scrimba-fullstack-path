@@ -43,7 +43,7 @@
 .main-content > h2 {
     font-size: var(--font-size-heading-second);
     font-weight: var(--font-weight-bold);
-    margin-bottom: var(--space-xsm)
+    margin-bottom: var(--space-xsm);
     
 }
 
