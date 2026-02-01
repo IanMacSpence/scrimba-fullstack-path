@@ -1,7 +1,6 @@
 .main-content{
-    /* text-align: center; */
-    background-color: #1A1B21;
-    padding: 1.25em 2.25em;
+    background-color: var(--color-bg-primary);
+    padding: var(--space-md) var(--space-xlrg);
     flex: 1;
 }
 .main-details{
@@ -13,10 +12,11 @@
     font-size: 1.625rem;
     font-weight: 700;
     letter-spacing: 0.02em;
+    color: var(--color-text-secondary);
 }
 
 .job-title{
-    color: #F3BF99;
+    color: var(--color-text-accent);
     font-size: 0.85rem;
     font-weight: 300;
     letter-spacing: 0.05em;
@@ -25,7 +25,7 @@
 }
 
 .portfolio-link{
-    color: #F5F5F5;
+    color: var(--color-text-primary);
     font-size: 0.625rem;
     text-decoration: none;
     letter-spacing: 0.05em;

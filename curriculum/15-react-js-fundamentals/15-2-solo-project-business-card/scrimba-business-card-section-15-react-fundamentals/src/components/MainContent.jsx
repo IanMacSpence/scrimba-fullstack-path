@@ -6,7 +6,7 @@ export default function MainContent() {
     return(
         <main className="main-content">
             <div className='main-details'>
-                <h1>John Doeson</h1>
+                <h1>John Johnson</h1>
                 <h2 className='job-title'>Frontend Developer</h2>
                 <a 
                     href="https://ibmspence.dev/"

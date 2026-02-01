@@ -1,22 +1,26 @@
 import { FaTwitter, FaFacebook, FaInstagram, FaGithub } from "react-icons/fa"
-import SocialMediaIcon from './SocialMediaIcon.jsx'
+import SocialIcon from './SocialIcon.jsx'
 import '../styles/Footer.css'
 
 export default function Footer() {
     return(
         <footer className="footer">
-            <a className="icon-box" href="https://twitter.com" target="_blank">
-                <FaTwitter />
-            </a>
-            <a className="icon-box" href="https://facebook.com" target="_blank">
-                <FaFacebook />
-            </a>
-            <a className="icon-box" href="https://instagram.com" target="_blank">
-                <FaInstagram />
-            </a>
-            <a className="icon-box" href="https://github.com" target="_blank">
-                <FaGithub />
-            </a>
+            <SocialIcon 
+                icon={FaTwitter}
+                href="https://twitter.com"
+            />
+            <SocialIcon 
+                icon={FaFacebook}
+                href="https://facebook.com"
+            />
+            <SocialIcon 
+                icon={FaInstagram}
+                href="https://instagram.com"
+            />
+            <SocialIcon 
+                icon={FaGithub}
+                href="https://github.com"
+            />
         </footer>
     )
 }

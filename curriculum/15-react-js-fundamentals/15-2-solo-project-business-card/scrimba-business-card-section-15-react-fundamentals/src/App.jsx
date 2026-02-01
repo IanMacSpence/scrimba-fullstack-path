@@ -1,5 +1,3 @@
-
-import profilePic from './assets/cgpt-profile-pic.png'
 import HeaderPhoto from './components/HeaderPhoto.jsx'
 import MainContent from './components/MainContent.jsx'
 import Footer from './components/Footer.jsx'

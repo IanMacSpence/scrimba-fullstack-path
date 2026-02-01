@@ -6,12 +6,10 @@
     border-radius: 6px;
     gap: 0.5em;
     justify-content: center;
-    
-
 }
 
 
-
+/*hard coding these values as they're not part of my design system and are once off*/
 .email-btn{
     background-color: #fff;
     color: #1E1F26;

@@ -120,10 +120,30 @@
 
 #root {
   height: 100%;
+
+  /*Custom Properties*/
+  /* Colors */
+  --color-bg-primary: #1A1B21;
+  --color-bg-secondary:  #161619;
+  --color-text-primary: #F5F5F5;
+  --color-text-secondary: #fff;
+  --color-text-accent: #F3BF99;
+
+  /* Spacing */
+  --space-xsm: 0.25em;
+  --space-sm: 0.5em;
+  --space-md: 1.25em;
+  --space-lrg: 1.75em;
+  --space-xlrg: 2.25em;
+
+  /* Typography */
+
+
+  /* Other */
 }
 
 html,
 body {
   font-family: "Roboto", sans-serif;
-  color: #F5F5F5;
+  color: var(--color-text-primary);
 }
