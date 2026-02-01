@@ -5,11 +5,12 @@
 }
 .main-details{
     text-align: center;
-    margin-bottom: 1em;
+    margin-bottom: var(--space-md);
+   
 }
 
 .main-content > h1 {
-    font-size: 1.625rem;
+    font-size: var(--font-size-heading-main);
     font-weight: 700;
     letter-spacing: 0.02em;
     color: var(--color-text-secondary);
@@ -20,7 +21,8 @@
     font-size: 0.85rem;
     font-weight: 300;
     letter-spacing: 0.05em;
-    margin-bottom: 0.4em;
+    margin-bottom: var(--space-xsm);
+    
 
 }
 
@@ -34,19 +36,20 @@
 .main-btn-wrapper {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 2em;
+    margin-bottom: var(--space-xlrg);
+    
 }
 
-.main-content > h3 {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 0.375rem;
+.main-content > h2 {
+    font-size: var(--font-size-heading-second);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-xsm)
+    
 }
 
 .main-content > p {
-    font-size: 0.675rem;
+    font-size: var(--font-size-paragraph);
     line-height: 1.5;
-    margin-bottom: 1.625em;
-
-
+    margin-bottom: var(--space-lrg);
+    
 }

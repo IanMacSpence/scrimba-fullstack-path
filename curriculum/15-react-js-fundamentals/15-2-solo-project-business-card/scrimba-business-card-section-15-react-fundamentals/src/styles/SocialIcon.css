@@ -1,0 +1,14 @@
+.icon-box {
+  width: 25px;
+  height: 25px;
+
+  background-color: #918E9B;
+  border-radius: var(--radius);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--color-bg-secondary);
+  font-size: 1.25rem;
+}

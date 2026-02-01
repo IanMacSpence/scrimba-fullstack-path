@@ -118,9 +118,15 @@
 
 /* End of CSS reset */
 
-#root {
-  height: 100%;
+/* 
+:root and #root are different 
 
+:root is a CSS pseudo-class that represents the html document root (<html>)
+#root is the ID for the React app container element
+
+*/
+
+:root{
   /*Custom Properties*/
   /* Colors */
   --color-bg-primary: #1A1B21;
@@ -130,16 +136,25 @@
   --color-text-accent: #F3BF99;
 
   /* Spacing */
-  --space-xsm: 0.25em;
-  --space-sm: 0.5em;
-  --space-md: 1.25em;
-  --space-lrg: 1.75em;
-  --space-xlrg: 2.25em;
+  --space-xxsm: 0.25em;
+  --space-xsm: 0.375em;
+  --space-sm: 0.75em;
+  --space-md: 1em;
+  --space-lrg: 1.625em;
+  --space-xlrg: 2em;
 
   /* Typography */
-
+  --font-size-heading-main: 1.625rem;
+  --font-size-heading-second: 1rem;
+  --font-size-paragraph: 0.675rem;
+  --font-weight-bold: 700;
 
   /* Other */
+  --radius: 6px
+}
+
+#root {
+  height: 100%;
 }
 
 html,

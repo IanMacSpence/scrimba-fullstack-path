@@ -1,22 +1,8 @@
 .footer{
     background-color: var(--color-bg-secondary);
     display: flex;
-    gap: 1.5em;
+    gap: var(--space-lrg);
     padding: 1.25em 0;
     justify-content: center;
 }
 
-.icon-box {
-  width: 25px;
-  height: 25px;
-
-  background-color: #918E9B;
-  border-radius: 6px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  color: var(--color-bg-secondary);
-  font-size: 20px;
-}

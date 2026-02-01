@@ -1,10 +1,10 @@
 .contact-button{
     display: flex;
-    padding: 0.5em 0;
+    padding: var(--space-sm) 0;
     width: 40%;
     text-decoration: none;
-    border-radius: 6px;
-    gap: 0.5em;
+    border-radius: var(--radius);
+    gap: var(--space-sm);
     justify-content: center;
 }
 

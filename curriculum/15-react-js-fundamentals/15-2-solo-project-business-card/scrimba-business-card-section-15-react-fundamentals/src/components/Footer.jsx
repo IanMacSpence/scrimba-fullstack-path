@@ -1,6 +1,7 @@
 import { FaTwitter, FaFacebook, FaInstagram, FaGithub } from "react-icons/fa"
 import SocialIcon from './SocialIcon.jsx'
 import '../styles/Footer.css'
+import '../styles/SocialIcon.css'
 
 export default function Footer() {
     return(
