@@ -1,8 +1,7 @@
-import profilePic from '../assets/cgpt-profile-pic.png'
 import '../styles/HeaderPhoto.css'
 
-export default function HeaderPhoto() {
+export default function HeaderPhoto({image, alt}) {
     return(
-        <img src={profilePic} className='header-photo' alt="John Johnson headshot" />
+        <img src={image} className='header-photo' alt={alt} />
     )
 }

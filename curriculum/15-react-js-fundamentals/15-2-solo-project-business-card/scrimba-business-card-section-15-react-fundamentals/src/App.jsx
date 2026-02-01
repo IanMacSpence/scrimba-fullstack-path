@@ -5,15 +5,17 @@ import './styles/App.css'
 import './styles/HeaderPhoto.css'
 import './styles/MainContent.css'
 import './styles/Footer.css'
+import './data/cardData.js'
+import { cardData } from './data/cardData.js'
 
 function App() {
 
 
   return (
     <div className="app">
-      <HeaderPhoto />
-      <MainContent />
-      <Footer />
+      <HeaderPhoto image={cardData.profileImage} alt={`${cardData.name}`}/>
+      <MainContent data={cardData}/>
+      <Footer social={cardData.social}/>
     </div>
   )
 }
