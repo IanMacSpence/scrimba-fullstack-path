@@ -125,15 +125,6 @@
 #root is the ID for the React app container element
 
 */
-html,
-body {
-  font-family: "Roboto", sans-serif;
-  color: var(--color-text-primary);
-}
-
-#root {
-  height: 100%;
-}
 
 :root{
   /*Custom Properties*/
@@ -172,3 +163,15 @@ body {
   --color-text-accent: #F47D27;
 }
 
+#root {
+  height: 100%;
+}
+
+.app {
+  color: var(--color-text-primary);
+}
+
+html,
+body {
+  font-family: "Roboto", sans-serif;
+}
