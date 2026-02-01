@@ -7,7 +7,7 @@ export default function MainContent() {
         <main className="main-content">
             <div className='main-details'>
                 <h1>John Johnson</h1>
-                <span className='job-title'>Frontend Developer</span>
+                <p className='job-title'>Frontend Developer</p>
                 <a 
                     href="https://ibmspence.dev/"
                     target="_blank"
