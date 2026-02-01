@@ -3,6 +3,6 @@ import '../styles/HeaderPhoto.css'
 
 export default function HeaderPhoto() {
     return(
-        <img src={profilePic} className='header-photo' alt="Mugshot of John Johnson" />
+        <img src={profilePic} className='header-photo' alt="John Johnson headshot" />
     )
 }

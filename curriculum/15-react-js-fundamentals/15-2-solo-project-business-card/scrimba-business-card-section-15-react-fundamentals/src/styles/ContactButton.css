@@ -8,6 +8,12 @@
     justify-content: center;
 }
 
+.contact-button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
+}
+
 
 /*hard coding these values as they're not part of my design system and are once off*/
 .email-btn{
