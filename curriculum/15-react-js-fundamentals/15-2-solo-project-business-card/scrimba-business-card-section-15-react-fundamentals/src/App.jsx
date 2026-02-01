@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import HeaderPhoto from './components/HeaderPhoto.jsx'
 import MainContent from './components/MainContent.jsx'
 import Footer from './components/Footer.jsx'
@@ -9,9 +10,10 @@ import './data/cardData.js'
 import { cardData } from './data/cardData.js'
 
 function App() {
-
+  const [isDark, setIsDark] = useState(true);
   return (
-    <div className="app">
+    <div className={`app ${isDark ? 'dark' : 'light'}`}>
+      <button onClick={() => setIsDark(!isDark)}>Toggle Theme</button>
       <HeaderPhoto image={cardData.profileImage} alt={`${cardData.name}`}/>
       <MainContent data={cardData}/>
       <Footer social={cardData.social}/>
