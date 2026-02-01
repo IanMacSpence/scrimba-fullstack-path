@@ -2,7 +2,7 @@
     background-color: var(--color-bg-secondary);
     display: flex;
     gap: var(--space-lrg);
-    padding: 1.25em 0;
+    padding: var(--space-md) 0;
     justify-content: center;
 }
 

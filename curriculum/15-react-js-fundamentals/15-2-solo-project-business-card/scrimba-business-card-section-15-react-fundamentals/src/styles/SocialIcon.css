@@ -12,3 +12,9 @@
   color: var(--color-bg-secondary);
   font-size: 1.25rem;
 }
+
+.icon-box:hover {
+  background-color: #fff;
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}

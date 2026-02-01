@@ -10,7 +10,6 @@ import { cardData } from './data/cardData.js'
 
 function App() {
 
-
   return (
     <div className="app">
       <HeaderPhoto image={cardData.profileImage} alt={`${cardData.name}`}/>
