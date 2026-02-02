@@ -1,0 +1,33 @@
+.theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+
+    background-color: var(--color-bg-secondary);
+    border: 2px solid var(--color-text-accent);
+    border-radius: 50%;
+
+    width: 3rem;
+    height: 3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--color-text-accent);
+    font-size: 1.25rem;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1) rotate(15deg);
+    background-color: var(--color-text-accent);
+    color: var(--color-bg-primary);
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--color-text-accent);
+    outline-offset: 4px;
+}
