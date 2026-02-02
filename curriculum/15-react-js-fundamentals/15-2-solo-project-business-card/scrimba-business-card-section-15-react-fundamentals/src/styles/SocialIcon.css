@@ -11,9 +11,10 @@
 
   color: var(--color-bg-secondary);
   font-size: 1.25rem;
+
+    transition: all 0.3s ease;
 }
 
 .icon-box:hover {
   background-color: var(--color-icon-accent);
-  transition: all 0.3s ease;
 }

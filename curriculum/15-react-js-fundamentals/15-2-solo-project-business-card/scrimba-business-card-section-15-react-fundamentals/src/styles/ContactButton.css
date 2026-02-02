@@ -7,11 +7,11 @@
     gap: var(--space-sm);
     justify-content: center;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
 }
 
 .contact-button:hover {
   opacity: 0.9;
-  transition: all 0.2s ease;
 }
 
 
