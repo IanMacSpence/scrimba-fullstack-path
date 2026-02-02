@@ -1,17 +1,16 @@
 import '../styles/ContactButton.css'
-export default function ContactButton(props){
-    const Icon = props.icon;
+export default function ContactButton({ icon: Icon, href, label, className}){
     return(
         // chose anchor element here and not a button because it redirects to a link
         <a
-            href={props.href}
-            className={`contact-button ${props.className}`}
+            href={href}
+            className={`contact-button ${className}`}
             target="_blank"
             rel="noopener noreferrer"
 
         >
             <Icon />
-            <span>{props.label}</span>
+            <span>{label}</span>
         </a>
     )
 }

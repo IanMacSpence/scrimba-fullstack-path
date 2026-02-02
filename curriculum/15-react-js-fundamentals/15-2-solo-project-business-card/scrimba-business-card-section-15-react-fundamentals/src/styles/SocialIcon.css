@@ -2,7 +2,7 @@
   width: 25px;
   height: 25px;
 
-  background-color: #918E9B;
+  background-color: var(--color-icon-bg);
   border-radius: var(--radius);
 
   display: flex;
@@ -14,7 +14,6 @@
 }
 
 .icon-box:hover {
-  background-color: #fff;
-  transform: scale(1.1);
+  background-color: var(--color-icon-accent);
   transition: all 0.3s ease;
 }

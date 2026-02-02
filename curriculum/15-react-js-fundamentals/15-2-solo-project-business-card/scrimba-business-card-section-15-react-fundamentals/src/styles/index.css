@@ -131,9 +131,14 @@
   /* Colors */
   --color-bg-primary: #1A1B21;
   --color-bg-secondary:  #161619;
+
   --color-text-primary: #F5F5F5;
   --color-text-secondary: #fff;
   --color-text-accent: #F3BF99;
+
+  --color-icon-bg: #918E9B;
+  --color-icon-text: #161619;
+  --color-icon-accent: #F47D27;
 
   /* Spacing */
   --space-xxsm: 0.25em;
@@ -161,6 +166,10 @@
   --color-text-primary: #2B283A;
   --color-text-secondary: #4A4E74;
   --color-text-accent: #F47D27;
+
+  --color-icon-bg: #918E9B;
+  --color-icon-text: #D5D4D8;
+  --color-icon-accent: #F47D27;
 }
 
 #root {

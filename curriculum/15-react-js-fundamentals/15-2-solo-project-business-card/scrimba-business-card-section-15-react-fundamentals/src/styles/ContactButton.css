@@ -6,11 +6,11 @@
     border-radius: var(--radius);
     gap: var(--space-sm);
     justify-content: center;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
 .contact-button:hover {
   opacity: 0.9;
-  transform: translateY(-2px);
   transition: all 0.2s ease;
 }
 
@@ -21,7 +21,15 @@
     color: #1E1F26;
 }
 
+.app.light .email-btn {
+  border: 1px solid lightgray;
+}
+
 .linkedin-btn {
     background-color: #5093E2;
     color: #fff;
+}
+
+.app.light .linkedin-btn {
+  background-color: #297FE5;
 }
