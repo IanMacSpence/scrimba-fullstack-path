@@ -4,61 +4,61 @@ export const data = {
     {
       "type": "multiple",
       "difficulty": "medium",
-      "category": "Entertainment: Film",
-      "question": "What year did the movie &quot;Napoleon Dynamite&quot; come out?",
-      "correct_answer": "2004",
+      "category": "Entertainment: Music",
+      "question": "Who had a 1973 hit with the song &#039;Hocus Pocus&#039;?",
+      "correct_answer": "Focus",
       "incorrect_answers": [
-        "2002",
-        "2003",
-        "2005"
+        "Pilot",
+        "Rush",
+        "AC/DC"
       ]
     },
     {
       "type": "multiple",
       "difficulty": "hard",
-      "category": "Entertainment: Video Games",
-      "question": "Which Kingdom Hearts game featured the cast of &quot;The World Ends With You&quot;?",
-      "correct_answer": "Dream Drop Distance",
+      "category": "Entertainment: Board Games",
+      "question": "What Magic: The Gathering card&#039;s flavor text is just &#039;Ribbit.&#039;?",
+      "correct_answer": "Turn to Frog",
       "incorrect_answers": [
-        "Birth By Sleep",
-        "365/2 Days",
-        "Re:Chain of Memories"
+        "Spore Frog",
+        "Bloated Toad",
+        "Frogmite"
       ]
     },
     {
       "type": "multiple",
       "difficulty": "easy",
-      "category": "General Knowledge",
-      "question": "What country has had prime ministers named Eden, Major, Peel, Law, Brown and Heath?",
-      "correct_answer": "United Kingdom",
+      "category": "Animals",
+      "question": "By definition, where does an abyssopelagic animal live?",
+      "correct_answer": "At the bottom of the ocean",
       "incorrect_answers": [
-        "Australia",
-        "New Zealand",
-        "Canada"
+        "In the desert",
+        "On top of a mountain",
+        "Inside a tree"
       ]
     },
     {
       "type": "multiple",
       "difficulty": "easy",
-      "category": "General Knowledge",
-      "question": "What country has had prime ministers named Eden, Major, Peel, Law, Brown and Heath?",
-      "correct_answer": "United Kingdom",
+      "category": "Science: Computers",
+      "question": "Which computer language would you associate Django framework with?",
+      "correct_answer": "Python",
       "incorrect_answers": [
-        "Australia",
-        "New Zealand",
-        "Canada"
+        "C#",
+        "C++",
+        "Java"
       ]
     },
     {
       "type": "multiple",
-      "difficulty": "easy",
-      "category": "General Knowledge",
-      "question": "What country has had prime ministers named Eden, Major, Peel, Law, Brown and Heath?",
-      "correct_answer": "United Kingdom",
+      "difficulty": "medium",
+      "category": "Sports",
+      "question": "Why was The Green Monster at Fenway Park was originally built?",
+      "correct_answer": "To prevent viewing games from outside the park.",
       "incorrect_answers": [
-        "Australia",
-        "New Zealand",
-        "Canada"
+        "To make getting home runs harder.",
+        "To display advertisements.",
+        "To provide extra seating."
       ]
     }
   ]

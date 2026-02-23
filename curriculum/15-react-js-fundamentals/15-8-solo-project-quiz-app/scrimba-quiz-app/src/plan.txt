@@ -69,3 +69,42 @@ Build Order
 3. QA card
 
 Definition of Done
+
+
+TODO
+
+==========================================================================================
+
+[] skeleton loading
+
+==========================================================================================
+
+>error handling
+[] Prevent double-click race conditions
+
+
+==========================================================================================
+
+add focus border on submit button []
+button styling for modal []
+
+==========================================================================================
+
+> add number of questions + pagination
+    > num of questions is adjusting api call, but need input for this
+> add category: checkboxes
+    > input + API call
+> difficulty
+    > input + API call
+> type
+    > input + API call
+
+> animations
+> fix height issue on zoom
+
+==========================================================================================
+
+> a11y
+    > make sure focus and tabbing through works as expected
+    > try to actyally experiment with a screen reader this time
+==========================================================================================

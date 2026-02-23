@@ -12,7 +12,7 @@
 #root > main {
     background-color: #F5F7FB;
 
-    width: 550px;
+    width: 780px;
     min-height: 550px;
     padding: 40px 75px 25px;
 
@@ -31,13 +31,11 @@ main > h1 {
 }
 
 main > p {
-  font-family: "Inter", sans-serif;
   color: #293264;
   margin-bottom: 30px
 }
 
 main > button.start-quiz-btn {
-  font-family: "Inter", sans-serif;
   background-color: #4D5B9E;
   color: #F5F7FB;
   padding: 16px 60px;
