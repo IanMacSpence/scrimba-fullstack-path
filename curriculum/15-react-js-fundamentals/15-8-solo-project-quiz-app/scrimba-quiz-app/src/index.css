@@ -251,14 +251,27 @@ body {
   color: #293264;
 }
 
-.foot-container > .primary-btn{
+.btn {
   font-size: 0.7rem;
-  color: #F5F7FB;
-
-  background-color: #4D5B9E;
   border-radius: 10px;
   padding: 10px 20px;
   display: block;
+}
+
+.primary-btn{
+  color: #F5F7FB;
+  background-color: #4D5B9E;
+}
+
+.start-quiz-btn {
+  color: #F5F7FB;
+  background-color: #4D5B9E;
+}
+
+.go-back-btn {
+  color:#1C1C1C;
+  background-color: #f5f7fb;
+  border: 1px solid #1C1C1C;
 }
 
 /* Confirm Unanswered Questions Modal*/

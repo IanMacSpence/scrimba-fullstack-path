@@ -1,11 +1,13 @@
-
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
 
 /* ============== */
 /*  IMPORTS       */
 /* ============== */
 
 /* == External libraries == */
-import { useState  } from 'react'
+import { useState, useRef  } from 'react'
 import he from "he"
 import { nanoid } from "nanoid"
 
@@ -16,10 +18,6 @@ import ConfirmSubmitModal from './components/ConfirmSubmitModal'
 /* == Data And Utilities == */
 
 /* == Styles == */
-
-
-
-
 import './App.css'
 
 
@@ -28,6 +26,15 @@ export default function App() {
   const [status, setStatus] = useState("start") // start, loading, playing, checked
   const [questions, setQuestions] = useState([]) //need to fetch from API to set this
   const [isConfirmOpen, setIsConfirmOpen] = useState(false)
+
+  /* == Race Condition Controls == */
+  /* 
+   * Immediate in-flight lock: A ref-based boolean. It protects against double-clicks in the same render frame. State updates are async, so if(isLoading) return could fail if two fetch requests are made and the first one has not run setStatus("loading") yet. Refs update syncronously though, so this will be updated immediately once the first fetch request is made
+   * finally: clears the lock 
+   */
+  const inFlightRef = useRef(false) 
+  const abortControllerRef = useRef(null)
+  const requestIdRef = useRef(0)
 
   /* Derived variables */
   const isStart = status === "start"
@@ -99,24 +106,49 @@ export default function App() {
 
   
   async function loadQuestions(){
-    if (isLoading) return // guard against race conditions when fetching questions
-    
+    if (inFlightRef.current) return // guard against race conditions when fetching questions
+    inFlightRef.current = true
+
+    const myRequestId = ++requestIdRef.current 
+
+    const controller = new AbortController()
+    abortControllerRef.current = controller
+
     setStatus("loading")
+
     try{
-      const res = await fetch("https://opentdb.com/api.php?amount=5")
+      const res = await fetch("https://opentdb.com/api.php?amount=5", {
+      signal: controller.signal,
+    })
+
       if (!res.ok){
         throw new Error("Network response was not ok")
       }
+
       const data = await res.json()
+
       if (data.response_code !== 0){
         throw new Error("API returned no questions")
       }
+
+      if (myRequestId !== requestIdRef.current) return
+
       setQuestions(normalizeQuestions(data))
       setStatus("playing")
-    }
-    catch(error){
+
+    } catch(error){
+      if (error?.name === "AbortError") {
+        // status will be set by cancelFetch()
+        return
+      }
       console.error("Failed to fetch questions:", error)
       setStatus("error")
+
+    } finally {
+        if (myRequestId === requestIdRef.current) {
+        inFlightRef.current = false
+        abortControllerRef.current = null
+      }
     }
   }
 
@@ -136,6 +168,18 @@ export default function App() {
     }
   }
 
+  function cancelFetch() {
+    if (!inFlightRef.current) return
+
+    requestIdRef.current++
+
+    abortControllerRef.current?.abort()
+    abortControllerRef.current = null
+    inFlightRef.current = false
+
+    setStatus("start")
+  }
+
   function confirmSubmit(){
     setIsConfirmOpen(false)
     checkAnswers()
@@ -149,10 +193,13 @@ export default function App() {
   const startUI = (
         <>
           <h1>Quizzical</h1>
-          <p>Some description if needed</p>
+          {/* category */}
+          {/* difficulty */}
+          {/* type */}
+          {/* number of questions */}
           <button 
             onClick={loadQuestions}
-            className='start-quiz-btn'
+            className='btn start-quiz-btn'
           >
             Start quiz
           </button>
@@ -164,6 +211,7 @@ export default function App() {
           <div className="loading-screen">
             <p>Loading new questions…</p>
             <div className="spinner" />
+            <button className='btn primary-btn' onClick={cancelFetch}>Cancel</button>
           </div>
         </>
   )
@@ -174,7 +222,7 @@ export default function App() {
           <div className='foot-container'>
             {isChecked && <p className='score-report'>You scored {numCorrect}/{numQuestions} correct answers</p>}
             <button 
-              className='primary-btn'
+              className='btn primary-btn'
               onClick={handlePrimaryClick}
             >
               {isPlaying ? "Check answers" : "Play again"}
@@ -188,7 +236,7 @@ export default function App() {
           <p>Something went wrong while fetching questions.</p>
 
           <div className="foot-container">
-            <button onClick={loadQuestions} className="primary-btn">
+            <button onClick={loadQuestions} className="btn primary-btn">
               Try again
             </button>
             <button onClick={() => setStatus("start")} className="start-quiz-btn">

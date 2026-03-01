@@ -36,13 +36,13 @@ export default function ConfirmSubmitModal(props){
 
                 <div className="modal-actions">
                     <button 
-                        className="primary-btn"
+                        className="btn primary-btn"
                         ref={confirmBtnRef}
                         onClick={onConfirm}
                     >
                         Submit
                     </button>
-                    <button className="start-quiz-btn" onClick={onCancel}>
+                    <button className="btn go-back-bt   n" onClick={onCancel}>
                         Go back
                     </button>
                 </div>
