@@ -1,0 +1,122 @@
+/* App root */
+
+#root {
+  max-width: var(--app-max-width);
+  height: 100vh;
+  margin: 0 auto;
+  padding: 2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main app box */
+
+main {
+  background-color: var(--color-bg-app);
+
+  width: var(--quiz-width);
+  min-height: var(--quiz-min-height);
+  padding: 40px 75px 25px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main > h1 {
+  color: var(--color-text-primary);
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-semibold);
+  margin-bottom: 8px;
+}
+
+main > p {
+  color: var(--color-text-primary);
+  margin-bottom: 30px
+}
+
+main > button.start-quiz-btn {
+  background-color: var(--color-primary);
+  color: var(--color-text-on-primary);
+  padding: 16px 60px;
+  border-radius: 15px;
+}
+
+/* Buttons */
+
+.btn {
+  font-size: var(--fs-sm);
+  border-radius: 10px;
+  padding: 10px 20px;
+  display: block;
+}
+
+.primary-btn {
+  color: var(--color-bg-app);
+  background-color: var(--color-primary);
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.start-quiz-btn {
+  color: var(--color-text-on-primary);
+  background-color: var(--color-primary);
+}
+
+.primary-btn:hover, 
+.primary-btn:focus-visible {
+  background-color: var(--color-primary-hover);
+  cursor: pointer;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+}
+
+.go-back-btn {
+  color: var(--color-btn-secondary-text);
+  background-color: var(--color-btn-secondary-bg);
+  border: 1px solid var(--color-btn-secondary-border);
+}
+
+
+/* Loading Screen */
+
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.spinner {
+  width: var(--spinner-size);
+  height: var(--spinner-size);
+  border: var(--spinner-border-width) solid #DBDEF0;
+  border-top: 4px solid #4D5B9E;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Footer */
+
+.foot-container{
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.foot-container > .score-report{
+  font-size: var(--fs-md);
+  color: var(--color-text-primary);
+}

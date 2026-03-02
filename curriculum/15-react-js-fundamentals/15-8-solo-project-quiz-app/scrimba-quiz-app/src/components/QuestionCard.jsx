@@ -1,5 +1,7 @@
 import clsx from 'clsx'
 
+import '../styles/QuestionCard.css'
+
 
 export default function QuestionCard(props){
     const isCheckedState = props.gameStatus === "checked"

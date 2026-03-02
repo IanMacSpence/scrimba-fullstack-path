@@ -75,36 +75,60 @@ TODO
 
 ==========================================================================================
 
-[] skeleton loading
-
-==========================================================================================
-
->error handling
-[] Prevent double-click race conditions
-
-
-==========================================================================================
-
 add focus border on submit button []
 button styling for modal []
+> add css custom properties
 
 ==========================================================================================
 
-> add number of questions + pagination
-    > num of questions is adjusting api call, but need input for this
+
 > add category: checkboxes
     > input + API call
 > difficulty
     > input + API call
 > type
     > input + API call
-
+> add number of questions + pagination
+    > num of questions is adjusting api call, but need input for this
 > animations
 > fix height issue on zoom
+
+==========================================================================================
+
+consider using tokens to avoid getting the same question twice
 
 ==========================================================================================
 
 > a11y
     > make sure focus and tabbing through works as expected
     > try to actyally experiment with a screen reader this time
+
+==========================================================================================
+
+Accessibility: modal is good start, but add Escape close + focus return to trigger button in ConfirmSubmitModal.jsx.
+
+==========================================================================================
+
+State clarity: your status enum is solid; next step is extracting quiz state logic into a custom hook (keeps App.jsx lean).
+
+==========================================================================================
+
+Resilience: add fetch cancellation (AbortController) in App.jsx to avoid stale updates on rapid restarts.
+
+==========================================================================================
+
+Project polish: replace Vite default README with project-specific setup/features in README.md.
+
+==========================================================================================
+
+eslint fails on two unused vars in App.jsx: isStart and isError; remove or use them.
+
+==========================================================================================
+
+[] skeleton loading
+
+==========================================================================================
+
+background
+
 ==========================================================================================

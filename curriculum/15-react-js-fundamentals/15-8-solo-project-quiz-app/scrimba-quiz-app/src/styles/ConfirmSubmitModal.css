@@ -1,0 +1,39 @@
+
+/* Confirm Unanswered Questions Modal*/
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 1000;
+}
+
+.modal {
+  width: min(var(--modal-max-width), 100%);
+  background: #f5f7fb;
+  border-radius: 14px;
+  padding: 20px 20px 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.modal h2 {
+  color: #293264;
+  font-family: var(--ff-secondary);
+  font-size: var(--fs-lg);
+  margin-bottom: 10px;
+}
+
+.modal p {
+  color: #293264;
+  margin-bottom: 16px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  align-items: center;
+}

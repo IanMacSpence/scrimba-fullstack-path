@@ -12,13 +12,13 @@ import he from "he"
 import { nanoid } from "nanoid"
 
 /* == Components == */
-import QuestionCard from './components/QuestionCard'
-import ConfirmSubmitModal from './components/ConfirmSubmitModal'
+import QuestionCard from './QuestionCard'
+import ConfirmSubmitModal from './ConfirmSubmitModal'
 
 /* == Data And Utilities == */
 
 /* == Styles == */
-import './App.css'
+import '../styles/App.css'
 
 
 export default function App() {

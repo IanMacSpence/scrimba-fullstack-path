@@ -1,0 +1,213 @@
+/* CSS reset by David Bushell */
+/* https://git.dbushell.com/dbushell/patchwork/src/branch/main/static/css/base/reset.css# */
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:where(html) {
+  color-scheme: light dark;
+  hanging-punctuation: first allow-end last;
+  interpolate-size: allow-keywords;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+}
+
+:where(html.translated-rtl) {
+  direction: rtl;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(html) {
+    scroll-behavior: auto;
+  }
+}
+
+:where(body) {
+  min-block-size: 100svb;
+  min-inline-size: 300px;
+}
+
+:where(canvas, img, picture, svg, video) {
+  block-size: auto;
+  border: none;
+  display: block;
+  max-inline-size: 100%;
+}
+
+:where(button, input, progress, select, textarea) {
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font: inherit;
+  hanging-punctuation: none;
+  line-height: inherit;
+  text-align: start;
+  touch-action: manipulation;
+}
+
+:where(button) {
+  cursor: pointer;
+  user-select: none;
+}
+
+:where(textarea) {
+  resize: vertical;
+}
+
+:where(textarea:not([rows])) {
+  field-sizing: content;
+}
+
+:where(fieldset, iframe) {
+  border: none;
+}
+
+:where(p, li, h1, h2, h3, h4, h5, h6) {
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
+:where(abbr[title]) {
+  border: none;
+  text-decoration: none;
+}
+
+:where(cite) {
+  font-style: inherit;
+}
+
+:where(small) {
+  font-size: inherit;
+}
+
+:where(li, ol, ul) {
+  list-style: none;
+}
+
+:where(dialog, [popover]) {
+  background: transparent;
+  border: none;
+  color: inherit;
+  margin: auto;
+  max-block-size: none;
+  max-inline-size: none;
+  position: fixed;
+}
+
+:where([popover]) {
+  inset: auto;
+}
+
+:where(dialog:not([open], [popover]), [popover]:not(:popover-open)) {
+  display: none;
+}
+
+:where([hidden]:not([hidden="until-found"])) {
+  display: none !important;
+}
+
+/* End of CSS reset */
+
+/* ======================= */
+/*  CUSTOM VARIABLES       */
+/* ======================= */
+
+:root {
+  /* Typography */
+  --ff-primary: "Inter", sans-serif;
+  --ff-secondary: "Karla", sans-serif;
+
+  --fs-xs: 0.7rem;
+  --fs-sm: 0.75rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 2rem;
+
+  --fw-regular: 400;
+  --fw-semibold: 600;
+
+  /* Base colors */
+  --color-bg-body:#1C1C1C;
+  --color-bg-app: #f5f7fb;
+  --color-text-primary:  #293264;
+  --color-text-on-primary: #f5f7fb;
+
+  --color-primary: #4d5b9e;
+  --color-primary-hover: #dfe3ff;
+  --color-border-subtle: #dbdef0;
+
+  /* State colors */
+  --color-answer-selected: #d6dbf5;
+  --color-success: #94d7a2;
+  --color-danger: #f8bcbc;
+
+  --color-warning-border: #f0c36d;
+  --color-warning-bg: #fff3d6;
+  --color-warning-text: #7a4b00;
+
+  /* Buttons / neutrals */
+  --color-btn-secondary-bg: #f5f7fb;
+  --color-btn-secondary-text: #1c1c1c;
+  --color-btn-secondary-border: #1c1c1c;
+
+  /* Overlays / shadows */
+  --overlay-backdrop: rgba(0, 0, 0, 0.45);
+  --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.15);
+  --shadow-modal: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 15px;
+  --radius-pill: 999px;
+  --radius-circle: 50%;
+
+  /* Spacing */
+  --space-2xs: 0.125rem;   /* 2px */
+  --space-xs: 0.25rem;     /* 4px */
+  --space-sm: 0.4375rem;   /* 7px */
+  --space-md: 0.5rem;      /* 8px */
+  --space-lg: 0.625rem;    /* 10px */
+  --space-xl: 0.75rem;     /* 12px */
+  --space-2xl: 0.9375rem;  /* 15px */
+  --space-3xl: 1rem;       /* 16px */
+  --space-4xl: 1.25rem;    /* 20px */
+  --space-5xl: 1.5rem;     /* 24px */
+  --space-6xl: 1.875rem;   /* 30px */
+  --space-7xl: 2.5rem;     /* 40px */
+  --space-8xl: 3.75rem;    /* 60px */
+  --space-9xl: 4.6875rem;  /* 75px */
+
+  /* Layout sizing */
+  --app-max-width: 1280px;
+  --quiz-width: 780px;
+  --quiz-min-height: 550px;
+  --modal-max-width: 520px;
+  --answer-min-width: 65px;
+  --answer-min-height: 45px;
+  --spinner-size: 30px;
+  --spinner-border-width: 4px;
+
+  /* Motion / layering */
+  --dur-fast: 0.15s;
+  --dur-normal: 0.2s;
+  --dur-spinner: 0.8s;
+  --ease-standard: ease;
+  --z-modal: 1000;
+}
+
+body {
+  background-color: var(--color-bg-body);
+  font-family: var(--ff-primary);
+}
