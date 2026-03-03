@@ -135,6 +135,7 @@
 
   --fw-regular: 400;
   --fw-semibold: 600;
+  --lh-tight: 1.2;
 
   /* Base colors */
   --color-bg-body:#1C1C1C;
@@ -185,6 +186,7 @@
   --space-4xl: 1.25rem;    /* 20px */
   --space-5xl: 1.5rem;     /* 24px */
   --space-6xl: 1.875rem;   /* 30px */
+  --space-6-5xl: 2rem;     /* 32px */
   --space-7xl: 2.5rem;     /* 40px */
   --space-8xl: 3.75rem;    /* 60px */
   --space-9xl: 4.6875rem;  /* 75px */

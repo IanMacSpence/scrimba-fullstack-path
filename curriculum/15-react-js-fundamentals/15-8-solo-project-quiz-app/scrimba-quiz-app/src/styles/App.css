@@ -1,84 +1,103 @@
 /* App root */
 
 #root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   max-width: var(--app-max-width);
   height: 100vh;
-  margin: 0 auto;
-  padding: 2rem;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0 auto;
+  padding: var(--space-6-5xl);
 }
 
 /* Main app box */
 
 main {
-  background-color: var(--color-bg-app);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   width: var(--quiz-width);
   min-height: var(--quiz-min-height);
-  padding: 40px 75px 25px;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: var(--space-7xl) var(--space-9xl) var(--space-6xl);
+
+  background-color: var(--color-bg-app);
 }
 
 main > h1 {
-  color: var(--color-text-primary);
+  margin-bottom: var(--space-md);
+
   font-family: var(--ff-secondary);
   font-size: var(--fs-xl);
   font-weight: var(--fw-semibold);
-  margin-bottom: 8px;
+
+  color: var(--color-text-primary);
 }
 
 main > p {
-  color: var(--color-text-primary);
-  margin-bottom: 30px
-}
+  margin-bottom: var(--space-6xl);
 
-main > button.start-quiz-btn {
-  background-color: var(--color-primary);
-  color: var(--color-text-on-primary);
-  padding: 16px 60px;
-  border-radius: 15px;
+  color: var(--color-text-primary);
 }
 
 /* Buttons */
 
 .btn {
-  font-size: var(--fs-sm);
-  border-radius: 10px;
-  padding: 10px 20px;
   display: block;
+
+  padding: var(--space-lg) var(--space-4xl);
+
+  border-radius: var(--radius-md);
+
+  font-size: var(--fs-sm);
 }
 
 .primary-btn {
-  color: var(--color-bg-app);
   background-color: var(--color-primary);
-  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
+
+  color: var(--color-text-on-primary);
+
+  transition: background-color var(--dur-normal) var(--ease-standard), transform var(--dur-fast) var(--ease-standard), box-shadow var(--dur-fast) var(--ease-standard);
 }
 
 .start-quiz-btn {
-  color: var(--color-text-on-primary);
+  padding: var(--space-3xl) var(--space-8xl);
+
+  border-radius: var(--radius-xl);
+
   background-color: var(--color-primary);
+
+  color: var(--color-text-on-primary);
 }
 
-.primary-btn:hover, 
-.primary-btn:focus-visible {
+.primary-btn:hover,
+.start-quiz-btn:hover,
+.primary-btn:focus-visible,
+.start-quiz-btn:focus-visible {
   background-color: var(--color-primary-hover);
+  color: var(--color-text-primary);
+
+  box-shadow: var(--shadow-hover);
   cursor: pointer;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transform: translateY(calc(var(--space-2xs) * -1));
 
 }
 
 .go-back-btn {
-  color: var(--color-btn-secondary-text);
-  background-color: var(--color-btn-secondary-bg);
   border: 1px solid var(--color-btn-secondary-border);
+
+  background-color: var(--color-btn-secondary-bg);
+  color: var(--color-btn-secondary-text);
+}
+
+.go-back-btn:hover,
+.go-back-btn:focus-visible {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(calc(var(--space-2xs) * -1));
 }
 
 
@@ -88,17 +107,20 @@ main > button.start-quiz-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  margin-top: 40px;
+
+  gap: var(--space-xl);
+  margin-top: var(--space-7xl);
 }
 
 .spinner {
   width: var(--spinner-size);
   height: var(--spinner-size);
-  border: var(--spinner-border-width) solid #DBDEF0;
-  border-top: 4px solid #4D5B9E;
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
+
+  border: var(--spinner-border-width) solid var(--color-border-subtle);
+  border-top: var(--spinner-border-width) solid var(--color-primary);
+  border-radius: var(--radius-circle);
+
+  animation: spin var(--dur-spinner) linear infinite;
 }
 
 @keyframes spin {
@@ -110,13 +132,16 @@ main > button.start-quiz-btn {
 .foot-container{
   display: flex;
   flex-direction: row;
-  margin-top: 15px;
-  gap: 15px;
+
   align-items: center;
   justify-content: center;
+
+  gap: var(--space-2xl);
+  margin-top: var(--space-2xl);
 }
 
 .foot-container > .score-report{
-  font-size: var(--fs-md);
   color: var(--color-text-primary);
+
+  font-size: var(--fs-md);
 }

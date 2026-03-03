@@ -198,6 +198,7 @@ export default function App() {
           {/* type */}
           {/* number of questions */}
           <button 
+            type="button"
             onClick={loadQuestions}
             className='btn start-quiz-btn'
           >
@@ -211,7 +212,7 @@ export default function App() {
           <div className="loading-screen">
             <p>Loading new questions…</p>
             <div className="spinner" />
-            <button className='btn primary-btn' onClick={cancelFetch}>Cancel</button>
+            <button type="button" className='btn primary-btn' onClick={cancelFetch}>Cancel</button>
           </div>
         </>
   )
@@ -222,6 +223,7 @@ export default function App() {
           <div className='foot-container'>
             {isChecked && <p className='score-report'>You scored {numCorrect}/{numQuestions} correct answers</p>}
             <button 
+              type="button"
               className='btn primary-btn'
               onClick={handlePrimaryClick}
             >
@@ -236,10 +238,10 @@ export default function App() {
           <p>Something went wrong while fetching questions.</p>
 
           <div className="foot-container">
-            <button onClick={loadQuestions} className="btn primary-btn">
+            <button type="button" onClick={loadQuestions} className="btn primary-btn">
               Try again
             </button>
-            <button onClick={() => setStatus("start")} className="start-quiz-btn">
+            <button type="button" onClick={() => setStatus("start")} className="btn go-back-btn">
               Back to start
             </button>
           </div>
