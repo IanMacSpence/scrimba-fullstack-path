@@ -47,3 +47,14 @@
 
   gap: var(--space-xl);
 }
+
+.modal-actions .primary-btn:focus,
+.modal-actions .primary-btn:focus-visible {
+  background-color: var(--color-primary);
+  color: var(--color-text-on-primary);
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+  box-shadow: none;
+  transform: none;
+  transition: none;
+}
