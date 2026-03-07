@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import he from 'he'
 import { nanoid } from 'nanoid'
+import { GAME_STATUS } from '../constants/gameStatus'
 
 const TOKEN_STORAGE_KEY = 'opentdb-session-token'
 
@@ -33,9 +34,10 @@ function normalizeQuestions(data) {
 
 export default function useQuizGame() {
   // 1) Core game state (moved from App.jsx)
-  const [status, setStatus] = useState('start')
+  const [status, setStatus] = useState(GAME_STATUS.START)
   const [questions, setQuestions] = useState([])
   const [isConfirmOpen, setIsConfirmOpen] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
   const [quizOptions, setQuizOptions] = useState({
     amount: '5',
     category: '',
@@ -52,9 +54,9 @@ export default function useQuizGame() {
   const tokenRef = useRef(null)
 
   // 3) Derived state consumed by the UI
-  const isLoading = status === 'loading'
-  const isPlaying = status === 'playing'
-  const isChecked = status === 'checked'
+  const isLoading = status === GAME_STATUS.LOADING
+  const isPlaying = status === GAME_STATUS.PLAYING
+  const isChecked = status === GAME_STATUS.CHECKED
 
   const allAnswered = questions.every(q => q.selectedAnswer !== null)
   const numUnanswered = questions.filter(q => q.selectedAnswer === null).length
@@ -181,6 +183,18 @@ export default function useQuizGame() {
     return res.json()
   }
 
+  function getApiErrorMessage(responseCode) {
+    if (responseCode === 1) {
+      return 'No questions matched your selected settings. Try fewer questions or choose Any category/difficulty.'
+    }
+
+    if (responseCode === 5) {
+      return 'Too many requests right now. Please wait a few seconds and try again.'
+    }
+
+    return 'Something went wrong while fetching questions.'
+  }
+
   async function loadQuestions() {
     // Guard: only one active request at a time
     if (inFlightRef.current) return
@@ -192,7 +206,8 @@ export default function useQuizGame() {
     const controller = new AbortController()
     abortControllerRef.current = controller
 
-    setStatus('loading')
+    setErrorMessage('')
+    setStatus(GAME_STATUS.LOADING)
 
     try {
       let token = await getSessionToken(controller.signal)
@@ -209,20 +224,21 @@ export default function useQuizGame() {
       }
 
       if (data.response_code !== 0) {
-        throw new Error('API returned no questions for the selected options')
+        throw new Error(getApiErrorMessage(data.response_code))
       }
 
       // Ignore stale responses that finished after a newer request
       if (myRequestId !== requestIdRef.current) return
 
       setQuestions(normalizeQuestions(data))
-      setStatus('playing')
+      setStatus(GAME_STATUS.PLAYING)
     } catch (error) {
       if (error?.name === 'AbortError') {
         return
       }
       console.error('Failed to fetch questions:', error)
-      setStatus('error')
+      setErrorMessage(error?.message || 'Something went wrong while fetching questions.')
+      setStatus(GAME_STATUS.ERROR)
     } finally {
       if (myRequestId === requestIdRef.current) {
         inFlightRef.current = false
@@ -232,11 +248,11 @@ export default function useQuizGame() {
   }
 
   function checkAnswers() {
-    setStatus('checked')
+    setStatus(GAME_STATUS.CHECKED)
   }
 
   function handlePrimaryClick() {
-    if (status === 'playing') {
+    if (status === GAME_STATUS.PLAYING) {
       if (!allAnswered) {
         setIsConfirmOpen(true)
         return
@@ -244,7 +260,7 @@ export default function useQuizGame() {
       checkAnswers()
     }
 
-    if (status === 'checked') {
+    if (status === GAME_STATUS.CHECKED) {
       loadQuestions()
     }
   }
@@ -258,7 +274,7 @@ export default function useQuizGame() {
     abortControllerRef.current = null
     inFlightRef.current = false
 
-    setStatus('start')
+    setStatus(GAME_STATUS.START)
   }
 
   function confirmSubmit() {
@@ -271,7 +287,8 @@ export default function useQuizGame() {
   }
 
   function goToStart() {
-    setStatus('start')
+    setErrorMessage('')
+    setStatus(GAME_STATUS.START)
   }
 
   // Cleanup when component using this hook unmounts
@@ -290,6 +307,7 @@ export default function useQuizGame() {
     isLoading,
     isPlaying,
     isChecked,
+    errorMessage,
     numUnanswered,
     numQuestions,
     numCorrect,

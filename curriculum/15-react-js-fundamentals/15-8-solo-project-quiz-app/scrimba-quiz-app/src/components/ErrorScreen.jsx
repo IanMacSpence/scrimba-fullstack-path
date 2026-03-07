@@ -1,9 +1,9 @@
 export default function ErrorScreen(props) {
-  const { onRetry, onBackToStart } = props
+  const { message, onRetry, onBackToStart } = props
 
   return (
     <>
-      <p>Something went wrong while fetching questions.</p>
+      <p role='alert'>{message || 'Something went wrong while fetching questions.'}</p>
 
       <div className='foot-container'>
         <button type='button' onClick={onRetry} className='btn primary-btn'>

@@ -3,7 +3,9 @@
 /* ============== */
 
 /* == External libraries == */
+import { useRef } from 'react'
 import useQuizGame from '../hooks/useQuizGame'
+import { GAME_STATUS } from '../constants/gameStatus'
 
 /* == Components == */
 import ConfirmSubmitModal from './ConfirmSubmitModal'
@@ -25,6 +27,7 @@ export default function App() {
     isConfirmOpen,
     isPlaying,
     isChecked,
+    errorMessage,
     numUnanswered,
     numQuestions,
     numCorrect,
@@ -38,6 +41,19 @@ export default function App() {
     cancelSubmit,
     goToStart,
   } = useQuizGame()
+
+  const returnFocusRef = useRef(null)
+
+  function handlePrimaryClickWithFocusCapture() {
+    returnFocusRef.current = document.activeElement
+    handlePrimaryClick()
+  }
+
+  function restoreFocusAfterModalClose() {
+    if (returnFocusRef.current instanceof HTMLElement) {
+      returnFocusRef.current.focus()
+    }
+  }
 
   /* User Interfaces */
   const startUI = (
@@ -61,13 +77,14 @@ export default function App() {
           numCorrect={numCorrect}
           numQuestions={numQuestions}
           onSelectAnswer={selectAnswer}
-          onPrimaryClick={handlePrimaryClick}
+          onPrimaryClick={handlePrimaryClickWithFocusCapture}
           onChangeSettings={goToStart}
         />
   )
 
   const errorUI = (
         <ErrorScreen
+          message={errorMessage}
           onRetry={loadQuestions}
           onBackToStart={goToStart}
         />
@@ -79,15 +96,16 @@ export default function App() {
         onConfirm={confirmSubmit}
         onCancel={cancelSubmit}
         onBackdropClose={cancelSubmit}
+        onAfterClose={restoreFocusAfterModalClose}
       /> 
     : null
 
   const screens = {
-    start: startUI, 
-    loading: loadUI, 
-    playing: gameUI, 
-    checked: gameUI, 
-    error: errorUI
+    [GAME_STATUS.START]: startUI,
+    [GAME_STATUS.LOADING]: loadUI,
+    [GAME_STATUS.PLAYING]: gameUI,
+    [GAME_STATUS.CHECKED]: gameUI,
+    [GAME_STATUS.ERROR]: errorUI,
   }
 
 

@@ -29,6 +29,9 @@ export default function GameScreen(props) {
   return (
     <>
       {questionCards}
+      <p className='sr-only' aria-live='polite' aria-atomic='true'>
+        {isChecked ? `Quiz finished. You scored ${numCorrect} out of ${numQuestions} correct answers.` : ''}
+      </p>
       <div className='foot-container'>
         {isChecked && <p className='score-report'>You scored {numCorrect}/{numQuestions} correct answers</p>}
         <button
