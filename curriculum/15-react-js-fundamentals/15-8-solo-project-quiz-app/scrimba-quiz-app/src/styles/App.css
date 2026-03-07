@@ -18,12 +18,14 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: safe center;
 
   width: var(--quiz-width);
   min-height: var(--quiz-min-height);
+  max-height: 100%;
 
   padding: var(--space-7xl) var(--space-9xl) var(--space-6xl);
+  overflow-y: auto;
 
   background-color: var(--color-bg-app);
 }
@@ -42,6 +44,43 @@ main > p {
   margin-bottom: var(--space-6xl);
 
   color: var(--color-text-primary);
+}
+
+.quiz-options-form {
+  display: grid;
+  width: min(100%, 420px);
+  gap: var(--space-2xl);
+  margin-bottom: var(--space-6xl);
+}
+
+.quiz-option-field {
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.quiz-option-field label {
+  color: var(--color-text-primary);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+}
+
+.quiz-option-input {
+  width: 100%;
+  padding: var(--space-lg) var(--space-xl);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-app);
+  color: var(--color-text-primary);
+}
+
+.quiz-option-input:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.quiz-options-form .start-quiz-btn {
+  margin-top: var(--space-md);
+  justify-self: center;
 }
 
 /* Buttons */
