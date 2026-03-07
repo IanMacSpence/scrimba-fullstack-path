@@ -1,16 +1,79 @@
-# React + Vite
+# Quizzical (Scrimba Solo Project)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React quiz app that fetches trivia questions from OpenTDB and lets users choose category, difficulty, and number of questions.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 19 + Vite
+- ESLint
+- OpenTDB API
+- `he` for decoding HTML entities
+- `nanoid` for stable question IDs
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
 
-## Expanding the ESLint configuration
+- Node.js 18+
+- npm
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Install
+
+```bash
+npm install
+```
+
+### Run locally
+
+```bash
+npm run dev
+```
+
+### Build
+
+```bash
+npm run build
+```
+
+### Preview production build
+
+```bash
+npm run preview
+```
+
+### Lint
+
+```bash
+npm run lint
+```
+
+## Main Focus Areas (Scrimba Project)
+
+These are the core project goals I focused on for the solo build:
+
+- Fetch trivia questions from OpenTDB and normalize the API response for the UI.
+- Render multiple-choice question cards and allow one selected answer per question.
+- Check answers and show final score.
+- Handle loading, playing, checked, and error states.
+- Add quiz setup controls for category, difficulty, and number of questions.
+
+## Side Improvements I Also Built
+
+Beyond the baseline project requirements, I also worked on these improvements:
+
+- Refactored game logic into a custom hook (`useQuizGame`) to keep `App` lean.
+- Split UI into focused components (`StartScreen`, `GameScreen`, `LoadingScreen`, `ErrorScreen`, modal).
+- Added race-condition protections for API requests (in-flight guards, request IDs, abort support).
+- Added OpenTDB session token handling to reduce repeated questions.
+- Added user-facing API guidance for edge cases (including response codes 1 and 5).
+- Improved accessibility:
+	- keyboard-friendly answer controls,
+	- score and status announcements,
+	- modal Escape support,
+	- modal focus restoration + focus trap.
+- Improved layout behavior when many questions are loaded (scrollable quiz container).
+
+## Notes
+
+- Trivia data comes from OpenTDB: https://opentdb.com/
+- Question wording/content is owned by the API provider.
