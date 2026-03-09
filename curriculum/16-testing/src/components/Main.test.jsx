@@ -20,4 +20,22 @@ describe("Main", () => {
 
         expect(screen.getByRole("img").src).toBe("https://i.imgflip.com/1bij.jpg")
     })
+
+
+    test("displays the labels Top Text and Bottom Text, two text input fields with the placeholder texts One does not simply and Walk into Mordor, the button with the text Get a new meme image", () => {
+        render(<Main />)
+
+        expect(screen.getByText("Top Text")).toBeInTheDocument()
+        expect(screen.getByText("Bottom Text")).toBeInTheDocument()
+        expect(screen.getByPlaceholderText("One does not simply")).toBeInTheDocument()
+        expect(screen.getByPlaceholderText("Walk into Mordor")).toBeInTheDocument()
+        expect(
+            screen.getByRole("button", { name: "Get a new meme image 🖼" })
+        ).toBeInTheDocument()
+    })
+
+    
+
+
+    
 })
