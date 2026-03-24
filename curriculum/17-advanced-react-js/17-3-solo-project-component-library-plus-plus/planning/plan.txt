@@ -1,0 +1,250 @@
+React Component Library Project Plan
+
+
+PHASE 1 — PROJECT FOUNDATION
+
+Day 1 — Project Setup
+- Create the project
+- Create folders for components, styles, and demo pages
+- Create a main demo page for rendering component examples
+- Add placeholder sections for:
+  - Badges
+  - Banners
+  - Cards
+  - Testimonials
+  - Tooltips
+  - Toasts
+
+Goal:
+Create a simple playground where each component will eventually be displayed.
+
+
+Day 2 — Design Tokens
+Tasks
+- Define color variables
+- Define spacing values
+- Define border radius values
+- Define shadow values
+- Import styles globally so all components can use them
+
+Goal:
+Create one central place controlling visual consistency.
+
+
+Day 3 — Component API Planning
+Before building anything, decide what the component interfaces should look like.
+
+Tasks
+- Write down prop ideas for each component
+- Decide which components should accept children
+- Decide which components should use props instead of composition
+- Leave notes in component files describing the intended API
+
+Goal:
+Avoid redesigning component APIs later.
+
+
+
+PHASE 2 — SIMPLE COMPONENTS
+
+Day 4 — Badge Base Component
+Tasks
+- Create the Badge component
+- Allow it to render content
+- Add basic styling
+- Display several example badges on the demo page
+
+
+Day 5 — Badge Variants
+Tasks
+- Add a prop that controls badge style or color
+- Create multiple visual variants
+- Display examples of each variant
+
+Goal:
+Practice reusable styling with variants.
+
+
+Day 6 — Banner Base Layout
+Tasks
+- Create a Banner component
+- Add title and body layout
+- Add basic styling
+- Display an example banner on the demo page
+
+
+Day 7 — Banner Variants
+Tasks
+- Add a status or variant prop
+- Create visual styles for multiple banner types
+- Display example banners
+
+Goal:
+One reusable layout with different visual states.
+
+
+
+PHASE 3 — COMPOSITION COMPONENTS
+
+Day 8 — Card Base
+Tasks
+- Create the Card container component
+- Add padding
+- Add border and shadow
+- Render a simple card example
+
+
+Day 9 — Card API Design
+Tasks
+- Decide how the card should be structured
+- Decide whether it should use props or composition
+- Implement the initial card structure
+
+
+Day 10 — Card Subsections
+Tasks
+- Create card sections (header, body, footer or similar)
+- Style the layout
+- Ensure the sections work together
+
+
+Day 11 — Card Variations
+Tasks
+- Create multiple card examples
+- Try different content layouts
+- Confirm the card component is flexible enough for reuse
+
+
+
+PHASE 4 — TESTIMONIAL COMPONENT
+
+Day 12 — Testimonial Base
+Tasks
+- Create the Testimonial component
+- Add quote text
+- Add author name
+- Style the layout
+
+
+Day 13 — Testimonial Variations
+Tasks
+- Add optional elements like avatar or role
+- Try different layouts
+- Display several testimonial examples
+
+
+
+PHASE 5 — INTERACTIVE COMPONENTS
+
+Day 14 — Tooltip Base
+Tasks
+- Create the Tooltip wrapper component
+- Allow it to wrap another element
+- Render the tooltip content
+
+
+Day 15 — Tooltip Interaction
+Tasks
+- Show the tooltip when the user interacts with the trigger
+- Hide the tooltip appropriately
+- Confirm the behavior works consistently
+
+
+Day 16 — Tooltip Positioning
+Tasks
+- Add a prop for tooltip position
+- Support multiple positions
+- Render examples showing the different positions
+
+
+Day 17 — Tooltip Polish
+Tasks
+- Improve the styling
+- Add transitions
+- Improve the visual appearance
+
+
+
+PHASE 6 — TOAST NOTIFICATIONS
+
+Day 18 — Toast Base
+Tasks
+- Create the Toast component
+- Display a message
+- Add a close control
+
+
+Day 19 — Toast Dismiss Behavior
+Tasks
+- Add logic for dismissing the toast
+- Optionally support automatic dismissal
+
+
+Day 20 — Toast Container
+Tasks
+- Create a container that can display multiple toasts
+- Arrange them in a stack
+- Confirm multiple toasts work correctly
+
+
+Day 21 — Toast API Cleanup
+Tasks
+- Improve how toasts are created and configured
+- Display several example toast types
+
+
+
+PHASE 7 — REUSABILITY REVIEW
+
+Day 22 — Identify Duplication
+Tasks
+- Look for repeated styling patterns
+- Look for repeated layout structures
+- Look for repeated variant logic
+
+
+Day 23 — Extract Shared Utilities
+Tasks
+- Create shared styling utilities
+- Consolidate repeated patterns
+- Simplify component code where possible
+
+
+Day 24 — Improve Component APIs
+Questions to ask
+- Are there too many props?
+- Could composition improve flexibility?
+- Are variants easy to extend?
+
+
+
+PHASE 8 — PERFORMANCE REVIEW
+
+Day 25 — Identify Potential Performance Issues
+Tasks
+- Check for unnecessary rerenders
+- Check where components may be recreated too often
+- Consider which components actually need optimization
+
+
+Day 26 — Apply Small Optimizations
+Tasks
+- Apply optimizations only where they make sense
+- Ensure behavior remains correct
+
+
+Day 27 — Demo Page Cleanup
+Tasks
+- Organize component sections clearly
+- Show all variants for each component
+- Add labels and descriptions
+
+
+Day 28 — Reflection
+Write notes about what you learned.
+
+Topics
+- Props vs composition
+- Reusable styling strategies
+- Where abstraction helped
+- Where abstraction made things harder

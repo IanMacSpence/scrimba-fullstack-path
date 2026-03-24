@@ -119,3 +119,10 @@ button.button-danger {
 .box.filled {
     background-color: blue;
 }
+
+/* Containers */
+
+.buttons-container{
+    display: flex;
+    gap: 10px;
+}
