@@ -8,6 +8,7 @@ function App() {
   return (
     <>
       <h1>Your components go here</h1>
+      <h2 className="section-header">Buttons</h2>
       <section className="buttons-container">
         <Button>default</Button>
         <Button size="sm">default small</Button>
@@ -34,6 +35,27 @@ function App() {
           large danger
         </Button>
       </section>
+      <hr />
+      <h2 className="section-header">Menu</h2>
+      <section className="menu-container"></section>
+      <hr />
+      <h2 className="section-header">Badges</h2>
+      <section className="badge-container"></section>
+      <hr />
+      <h2 className="section-header">Banners</h2>
+      <section className="banner-container"></section>
+      <hr />
+      <h2 className="section-header">Cards</h2>
+      <section className="cards-container"></section>
+      <hr />
+      <h2 className="section-header">Testimonials</h2>
+      <section className="testimonials-container"></section>
+      <hr />
+      <h2 className="section-header">Tooltips</h2>
+      <section className="tooltips-container"></section>
+      <hr />
+      <h2 className="section-header">Toasts</h2>
+      <section className="toasts-container"></section>
     </>
   );
 }
