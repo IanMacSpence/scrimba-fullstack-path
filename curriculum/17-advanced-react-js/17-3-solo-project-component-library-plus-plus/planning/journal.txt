@@ -1,0 +1,27 @@
+25 March - Wed
+- spent a lot of time learning about design tokens, design systems and primitives/semantic/component architecture
+- spent time learning about Tailwind, a utility CSS library that allows you to add utility classes directly into html/jsx which can help speed up development. I've learned about it a little before
+- spent time learning about Radix UI and Shadcn/ui. Radix UI is a React component library. Components are unstyled and have built-in accessiblity features like keyboard nav, focus management, screen reading, escape key closing, click outside detection, tab order, aria attributes.  The dev still needs to handle the style of the component
+- Shadcn is built using radix components. They're just more prebuilt complex UI components and more focused on UI and having prestyled components whereas radix components are still components, but they're more primitive and more focused on the interaction handling and not the style. 
+>>> radix are headless components, shadcn uses those components to build prebuilt UI components
+
+- a lot of the work today was learning about tools and design theory. I didn't really get any hands on work done, but I worked out that I need to get a little token system together for my component library so I can have 
+color
+spacing
+radius
+typography
+shadows
+borders
+transitions
+a small sizing scale 
+
+I'm going to focus on building that architecture of primitive to semantic and then I'll focus on building the actual components and adding the component specific styling using the semantic tokens
+
+> also touched on typescript again just to refresh on its use.
+> touched on portfolio projects and tooling to use. It would be good to use the component libraries as it will help me to develop projects faster. I have examples from Scrimba on things that I can do like creating components etc, I don't need to spend a long time reinventing the wheel, as long as I can show the important human decisions for things like auth, routing, CRUD etc.
+
+
+
+
+24 March - Tues
+- created project and planned tasks to complete for the project and set up a lot of the files and folders
