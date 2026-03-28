@@ -16,28 +16,29 @@
 
   /* Color scheme options (non-semantic names are fine here) */
   --badge-color-gray-bg: var(--gray-100);
-  --badge-color-gray-fg: var(--gray-700);
+  --badge-color-gray-fg: var(--gray-800);
 
   --badge-color-red-bg: var(--red-100);
-  --badge-color-red-fg: var(--red-700);
+  --badge-color-red-fg: var(--red-800);
 
   --badge-color-yellow-bg: var(--yellow-100);
-  --badge-color-yellow-fg: var(--yellow-700);
+  --badge-color-yellow-fg: var(--yellow-800);
 
   --badge-color-green-bg: var(--green-100);
-  --badge-color-green-fg: var(--green-700);
+  --badge-color-green-fg: var(--green-800);
 
   --badge-color-blue-bg: var(--blue-100);
-  --badge-color-blue-fg: var(--blue-700);
-
-  --badge-color-indigo-bg: var(--indigo-100);
-  --badge-color-indigo-fg: var(--indigo-700);
+  --badge-color-blue-fg: var(--blue-800);
 
   --badge-color-purple-bg: var(--purple-100);
-  --badge-color-purple-fg: var(--purple-700);
+  --badge-color-purple-fg: var(--purple-800);
 
-  --badge-color-pink-bg: var(--pink-100);
-  --badge-color-pink-fg: var(--pink-700);
+  /* Extra colors not found in color pallette*/
+  --badge-color-indigo-bg: #e0e7ff;
+  --badge-color-indigo-fg: #3730a3;
+
+  --badge-color-pink-bg: #FCE7F3;
+  --badge-color-pink-fg: #9D174D;
 
   --badge-shape-square-radius: var(--radius-md);
   --badge-shape-pill-radius: var(--radius-full);
@@ -46,6 +47,7 @@
   --badge-bg: var(--badge-color-gray-bg);
   --badge-fg: var(--badge-color-gray-fg);
   --badge-fs: var(--font-size-14);
+  --badge-lh: var(--line-height-normal);
   --badge-radius: var(--badge-shape-pill-radius);
   --badge-pad-y: var(--badge-space-em-1);
   --badge-pad-x: var(--badge-space-em-4);
@@ -60,7 +62,6 @@
   --badge-radius: var(--badge-shape-square-radius);
 }
 
-
 /* colorScheme props */
 .badge--gray {
   --badge-bg: var(--badge-color-gray-bg);
@@ -71,7 +72,11 @@
   --badge-bg: var(--badge-color-red-bg);
   --badge-fg: var(--badge-color-red-fg);
 }
-/* yellow */
+
+.badge--yellow {
+  --badge-bg: var(--badge-color-yellow-bg);
+  --badge-fg: var(--badge-color-yellow-fg);
+}
 
 .badge--green {
   --badge-bg: var(--badge-color-green-bg);
@@ -82,12 +87,17 @@
   --badge-fg: var(--badge-color-blue-fg);
 }
 
-/* indigo */
-/* violet */
+.badge--indigo {
+  --badge-bg: var(--badge-color-indigo-bg);
+  --badge-fg: var(--badge-color-indigo-fg);
+}
 
 .badge--purple {
-    --badge-bg: var(--badge-color-purple-bg);
-    --badge-fg: var(--badge-color-purple-fg);
+  --badge-bg: var(--badge-color-purple-bg);
+  --badge-fg: var(--badge-color-purple-fg);
 }
-/* pink */
 
+.badge--pink {
+  --badge-bg: var(--badge-color-pink-bg);
+  --badge-fg: var(--badge-color-pink-fg);
+}

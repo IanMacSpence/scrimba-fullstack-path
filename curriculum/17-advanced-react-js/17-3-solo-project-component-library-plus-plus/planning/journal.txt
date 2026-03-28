@@ -3,7 +3,11 @@
 - The Badge component has non-semantic styling with pill/square and the color, so it doesn't make sense to use semantic tokens, so I instead just added component level tokens that use the primitives, but I should review this because this is apparently advised against
 - I added the primitives for my design system and added the component tokens for the Badge component. I tidied things up and simplified it based on the figma design
 >> Need to fix up pallette according to figma
+    > the colors already seem to exist, just different level so I updated the levels from 700 to 800. That was all that was needed. 
+    > It's not the case when it comes to the banner, so keep that in mind. It might help to add more primitives later on
 >> Need to add indigo and pink color tokens for the badges as they're not found elsewhere in the app
+    > indigo and pink were added from the figma design.
+    > line-height was also adjusted. Badges look perfect now
 >> After that, I can move onto writing the jsx for the Banners and lean more into the semantic tokens
 
 27 March - Fri

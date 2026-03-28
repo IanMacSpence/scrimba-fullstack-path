@@ -52,66 +52,66 @@ function App() {
       <section className="badge-container"></section>
       <Badge>Default</Badge>
       <Badge color="gray" variant="square">
-        Gray Square
+        Badge
       </Badge>
       <Badge color="gray" variant="pill">
-        Gray Pill
+        Badge
       </Badge>
 
       {/* Green */}
       <Badge color="green" variant="square">
-        Green Square
+        Badge
       </Badge>
       <Badge color="green" variant="pill">
-        Green Pill
+        Badge
       </Badge>
 
       {/* Blue */}
       <Badge color="blue" variant="square">
-        Blue Square
+        Badge
       </Badge>
       <Badge color="blue" variant="pill">
-        Blue Pill
+        Badge
       </Badge>
 
       {/* Indigo */}
       <Badge color="indigo" variant="square">
-        Indigo Square
+        Badge
       </Badge>
       <Badge color="indigo" variant="pill">
-        Indigo Pill
+        Badge
       </Badge>
 
       {/* Purple */}
       <Badge color="purple" variant="square">
-        Purple Square
+        Badge
       </Badge>
       <Badge color="purple" variant="pill">
-        Purple Pill
+        Badge
       </Badge>
 
       {/* Pink */}
       <Badge color="pink" variant="square">
-        Pink Square
+        Badge
       </Badge>
       <Badge color="pink" variant="pill">
-        Pink Pill
+        Badge
       </Badge>
 
       {/* Red */}
       <Badge color="red" variant="square">
-        Red Square
+        Badge
       </Badge>
       <Badge color="red" variant="pill">
-        Red Pill
+        Badge
       </Badge>
 
       {/* Yellow */}
       <Badge color="yellow" variant="square">
-        Yellow Square
+        Badge
       </Badge>
       <Badge color="yellow" variant="pill">
-        Yellow Pill
+        Badge
       </Badge>
 
       <hr />
