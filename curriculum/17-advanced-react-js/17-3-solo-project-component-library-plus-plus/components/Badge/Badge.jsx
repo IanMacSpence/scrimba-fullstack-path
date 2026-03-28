@@ -10,6 +10,6 @@ export default function Badge({children, className, variant, color, ...rest}){
     const allClasses = clsx("badge", variantClass, colorClass, className)
 
     return(
-        <span className={allClasses}>{children}</span>
+        <span className={allClasses} {...rest}>{children}</span>
     )
 }

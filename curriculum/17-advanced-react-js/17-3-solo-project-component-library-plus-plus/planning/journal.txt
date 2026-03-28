@@ -1,3 +1,16 @@
+28 March - Sat evening
+- Lots of AI feedback to go over. 
+    - Badge passthrough, not using rest properly
+        > I fixed this by adding rest to the jsx
+    - don't put badge specific tokens in :root as it could possibly lead to collissions in the global namespace
+        > fixed this by changing :root to .badge so that it is in the badge scope only
+- I worked on a lot of the styling as documented below. 
+
+>>> tomorrow I will work on 
+- final tweaks of the AI feedback
+- deciding on how to structure the Banners
+- Add semantic tokens for success, warning, error, neutral
+
 28 March - Sat
 - mostly focused on design theory again and discussed a lot with CGPT and Copilot about different solutions and approaches
 - The Badge component has non-semantic styling with pill/square and the color, so it doesn't make sense to use semantic tokens, so I instead just added component level tokens that use the primitives, but I should review this because this is apparently advised against

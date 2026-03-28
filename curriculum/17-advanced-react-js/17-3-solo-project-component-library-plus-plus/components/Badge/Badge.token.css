@@ -3,7 +3,7 @@
  * This is the key layer for non-domain badge options (shape + colorScheme).
  */
 
-:root {
+.badge {
   /* Badge-local spacing tokens (intentionally em-based, not global scale) */
   --badge-space-em-1: 0.125em;
   --badge-space-em-2: 0.25em;

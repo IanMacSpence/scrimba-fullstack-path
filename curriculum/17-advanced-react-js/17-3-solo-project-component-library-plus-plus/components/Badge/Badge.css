@@ -1,6 +1,3 @@
-:root {
-  --badge-padding: var();
-}
 
 .badge {
   display: inline-flex;
