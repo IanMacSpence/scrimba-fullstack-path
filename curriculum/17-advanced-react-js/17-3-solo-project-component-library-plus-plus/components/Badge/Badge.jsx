@@ -1,5 +1,8 @@
 import clsx from 'clsx';
+
+import "./Badge.token.css"
 import "./Badge.css"
+
 
 export default function Badge({children, className, variant, color, ...rest}){
     let variantClass = variant && `badge--${variant}`

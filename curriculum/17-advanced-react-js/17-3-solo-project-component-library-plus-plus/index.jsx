@@ -5,6 +5,14 @@ import Star from "./components/Star";
 import Button from "./components/Button/Button";
 import Badge from "./components/Badge/Badge";
 
+/* Styles */
+import './styles/style.css';       
+import './styles/primitives.css';  
+import './styles/semantic.css';    
+
+// app/layout/component usage 
+// import './app.css';                
+
 function App() {
   return (
     <>
@@ -42,7 +50,7 @@ function App() {
       <hr />
       <h2 className="section-header">Badges</h2>
       <section className="badge-container"></section>
-      <Badge>Badge</Badge>
+      <Badge>Default</Badge>
       <Badge color="gray" variant="square">
         Gray Square
       </Badge>

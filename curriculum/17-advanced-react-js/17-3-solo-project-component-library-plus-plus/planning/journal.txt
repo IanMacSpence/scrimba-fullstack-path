@@ -1,3 +1,19 @@
+28 March - Sat
+- mostly focused on design theory again and discussed a lot with CGPT and Copilot about different solutions and approaches
+- The Badge component has non-semantic styling with pill/square and the color, so it doesn't make sense to use semantic tokens, so I instead just added component level tokens that use the primitives, but I should review this because this is apparently advised against
+- I added the primitives for my design system and added the component tokens for the Badge component. I tidied things up and simplified it based on the figma design
+>> Need to fix up pallette according to figma
+>> Need to add indigo and pink color tokens for the badges as they're not found elsewhere in the app
+>> After that, I can move onto writing the jsx for the Banners and lean more into the semantic tokens
+
+27 March - Fri
+- reviewed component design for a simple component that uses children and accepts styling props and how to keep the styling (className) and props (...rest) extendable
+- wrote the jsx for the badge component. 
+
+
+26 March - Thurs
+- created all the files and folders for different components and their style files.
+
 25 March - Wed
 - spent a lot of time learning about design tokens, design systems and primitives/semantic/component architecture
 - spent time learning about Tailwind, a utility CSS library that allows you to add utility classes directly into html/jsx which can help speed up development. I've learned about it a little before
