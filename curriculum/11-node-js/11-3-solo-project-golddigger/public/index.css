@@ -1,36 +1,60 @@
+/* =============================================
+   CSS CUSTOM PROPERTIES (variables)
+   Define the colour palette once here so we can
+   reuse the same values throughout the file.
+   ============================================= */
 :root {
-    --bg: black;
-    --gold: gold;
-    --dark-gold: darkgoldenrod;
-    --brown: #2b2724;
+    --bg: black;             /* Page background colour */
+    --gold: gold;            /* Primary accent / text colour */
+    --dark-gold: darkgoldenrod; /* Darker gold used for gradients and borders */
+    --brown: #2b2724;        /* Card background — a warm dark brown */
 }
 
+/* =============================================
+   BODY
+   Full-viewport flex container that centres the
+   card both horizontally and vertically.
+   ============================================= */
 body {
     background-color: var(--bg);
     font-family: 'Roboto', sans;
-    letter-spacing: .04em;
+    letter-spacing: .04em;        /* Slight spacing makes text feel lighter */
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
+    align-items: center;          /* Vertical centre */
+    justify-content: center;      /* Horizontal centre */
+    height: 100vh;                /* Fill the whole viewport height */
+    margin: 0;                    /* Remove default browser margin */
     color: var(--gold);
 }
 
+/* =============================================
+   MAIN CARD
+   The brown rounded card that holds all content.
+   The gradient fades from brown at the top to
+   dark gold at the bottom for a subtle glow.
+   ============================================= */
 main {
     padding: 2em 2em 1em 2em;
     background-color: var(--brown);
     background-image: linear-gradient(180deg, var(--brown) 60%, var(--dark-gold));
     border-radius: 10px;
-    position: relative;
+    position: relative;           /* Needed so absolutely-positioned children (.status) stay inside */
     display: flex;
-    flex-direction: column;
-    gap: 1em;
+    flex-direction: column;       /* Stack children vertically */
+    gap: 1em;                     /* Uniform space between each child element */
 }
 
+/* =============================================
+   APP TITLE (.title)
+   The large "GoldDigger" heading.
+   The gradient-on-text trick works by clipping
+   a gradient to the text shape, then making the
+   real text colour transparent so the gradient
+   shows through.
+   ============================================= */
 .title {
     margin: 0 0 0.25em 0;
-    color: var(--gold);
+    color: var(--gold);           /* Fallback for browsers that don't support background-clip:text */
     text-align: center;
     font-family: "Saira Stencil One", serif;
     letter-spacing: 1.3px;
@@ -38,110 +62,168 @@ main {
     background-color: transparent;
     background-image: linear-gradient(45deg, var(--gold), var(--dark-gold));
     background-size: 100%;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background-clip: text;        /* Clip the gradient to the text outline */
+    -webkit-text-fill-color: transparent; /* Hide the real text so the gradient gradient is visible */
 }
 
+/* =============================================
+   GOLD IMAGE
+   Constrain the decorative image width and
+   centre it horizontally inside the flex column.
+   ============================================= */
 img {
     max-width: 155px;
-    align-self: center;
+    align-self: center;           /* Centre the image even though siblings are full-width */
     margin-bottom: 1em;
 }
 
+/* =============================================
+   CONNECTION STATUS LABEL (.status)
+   The small "Live Price 🟢" badge that floats
+   above the price box border, overlapping it.
+   Absolute positioning relative to .price-info-container.
+   ============================================= */
 .status {
     position: absolute;
-    top: -24px;
+    top: -24px;                   /* Lifts the label up to sit on the border line */
     left: 30px;
-    background-color: var(--brown);
+    background-color: var(--brown); /* Matches card background to "cut through" the border visually */
     padding: 0 .2em;
     font-size: 14px;
 }
 
+/* =============================================
+   PRICE INFO BOX (.price-info-container)
+   A bordered rounded box showing the live price
+   and the "Live Price" status label.
+   position:relative lets .status position itself
+   relative to this box.
+   ============================================= */
 .price-info-container {
     display: flex;
     gap: 0.5em;
-    justify-content: space-between;
+    justify-content: space-between; /* Price on the left, nothing extra on the right */
     font-size: 110%;
     border: 2px solid var(--gold);
-    position: relative;
+    position: relative;             /* Anchor point for the absolutely-positioned .status label */
     border-radius: 10px;
     padding: 0 1em;
 }
 
+/* =============================================
+   INVESTMENT FORM
+   Stacks label, input row, and button vertically.
+   position:relative is needed so the floating
+   label (.label) can position itself inside.
+   ============================================= */
 form {
     display: flex;
     flex-direction: column;
-    position: relative;
+    position: relative;           /* Anchor for the absolutely-positioned <label> */
     gap: 1em;
 }
 
+/* =============================================
+   INPUT ROW (.input-container)
+   Puts the £ currency prefix and the number
+   input side by side.
+   ============================================= */
 .input-container {
     display: flex;
     justify-content: space-between;
 }
 
+/* =============================================
+   CURRENCY PREFIX (.currency)
+   The £ box glued to the left of the number input.
+   The right-side border radii are zeroed so it
+   blends flush against the input field.
+   ============================================= */
 .currency {
-    align-self: stretch;
+    align-self: stretch;          /* Matches the full height of the input */
     margin-right: 0;
     padding: .5em;
     border-radius: 10px;
     border: 2px solid var(--gold);
-    border-bottom-right-radius: 0;
+    border-bottom-right-radius: 0; /* Remove right corners so it joins the input */
     border-top-right-radius: 0;
     font-size: 1.8em;
     color: var(--gold);
 }
 
+/* =============================================
+   FLOATING LABEL
+   Sits above the input field border, visually
+   looking like it's "cut into" the box border.
+   Needs the form to have position:relative.
+   ============================================= */
 label {
     position: absolute;
     font-size: 14px;
-    top: -7px;
+    top: -7px;                    /* Floats up to overlap the top border of the input */
     left: 30px;
-    z-index: 1;
-    background-color: var(--brown);
+    z-index: 1;                   /* Sits in front of the border */
+    background-color: var(--brown); /* Hides the border behind the label text */
     padding: 0 .2em;
 }
 
+/* =============================================
+   NUMBER INPUT
+   Fills the remaining width next to .currency.
+   Left border and left radii removed so it joins
+   the currency prefix seamlessly.
+   ============================================= */
 input {
     margin-left: 0;
     padding: 1em;
     width: 100%;
     border: 2px solid var(--gold);
-    border-left: 0;
+    border-left: 0;               /* No border where it meets the .currency prefix */
     border-radius: 10px;
-    border-top-left-radius: 0;
+    border-top-left-radius: 0;    /* Remove left corner so it joins .currency */
     border-bottom-left-radius: 0;
-    background-color: transparent;
+    background-color: transparent; /* See-through so the card gradient shows */
     color: var(--gold);
     font-size: 120%;
 }
 
+/* Placeholder text is dimmer so it doesn't compete with real input */
 input::placeholder {
     font-size: 120%;
     color: #999;
 }
 
+/* =============================================
+   INVEST BUTTON (.invest-btn)
+   The large gold call-to-action button.
+   ============================================= */
 .invest-btn {
     padding: .6em .5em;
     background-color: var(--gold);
     background-image: linear-gradient(45deg, var(--gold) 50%, var(--dark-gold));
     font-weight: 400;
     font-size: 1.7em;
-    color: var(--brown);
+    color: var(--brown);          /* Dark text on gold background for contrast */
     font-family: 'Roboto', sans;
     border-radius: 10px;
     border: 2px solid var(--dark-gold);
 }
 
+/* Hover: inverts the gradient direction for a subtle "pressed" effect */
 .invest-btn:hover {
     background-color: var(--brown);
     background-image: linear-gradient(45deg, var(--dark-gold), var(--gold) 50%);
 }
 
+/* Focus outline for keyboard navigation accessibility */
 .invest-btn:focus {
     outline: 2px solid #fff;
 }
 
+/* =============================================
+   FOOTNOTE
+   Small print at the bottom of the card.
+   ============================================= */
 .footnote {
     font-size: 10px;
     text-align: center;
@@ -151,6 +233,11 @@ input::placeholder {
     color: var(--gold);
 }
 
+/* =============================================
+   MODAL DIALOG
+   The native <dialog> element that pops up with
+   the purchase summary. Matches the card style.
+   ============================================= */
 dialog {
     max-width: 280px;
     border-radius: 10px;
@@ -166,6 +253,7 @@ dialog h2 {
     margin-top: 0;
 }
 
+/* The OK button inside the dialog — centred and gold, matching the main button style */
 dialog button {
     width: 50%;
     padding: .7em;
@@ -177,8 +265,8 @@ dialog button {
     font-family: 'Roboto', sans;
     border-radius: 10px;
     border: 2px solid var(--dark-gold);
-    margin: 0 auto;
-    display: block;
+    margin: 0 auto;               /* Centres the button horizontally */
+    display: block;               /* Required for margin:auto to work on a button */
 }
 
 dialog button:hover {
@@ -190,12 +278,18 @@ dialog button:focus {
     outline: 2px solid #fff;
 }
 
+/* Shared interactive styles for both buttons — pointer cursor and smooth gradient transition */
 .invest-btn,
 dialog button {
     cursor: pointer;
     transition: background 0.3s ease, color 0.3s ease;
 }
 
+/* =============================================
+   DIALOG BACKDROP (::backdrop)
+   The dimmed overlay behind the modal dialog.
+   Uses a subtle dark grey gradient at 50% opacity.
+   ============================================= */
 ::backdrop {
     background-image: linear-gradient(45deg,
             #999,
