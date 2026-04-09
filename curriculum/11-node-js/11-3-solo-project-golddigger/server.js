@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
+import fs from "fs";
 
 const app = express();
 
@@ -40,23 +41,30 @@ app.post("/api/buy", (req, res) => {
       success: false,
       error: "No live price",
     });
+    return;
   }
 
   if (!investAmount || investAmount <= 0) {
-    res.status(404).json({
+    res.status(400).json({
       success: false,
       error: "Investment amount error",
     });
-  };
+    return;
+  }
 
   const goldOz = Number((investAmount / livePrice).toFixed(2));
 
-  res.json({ goldOz });
-
+  const logLine = `${new Date().toISOString()} | amount paid: £${investAmount.toFixed(2)} | price per Oz: £${livePrice.toFixed(2)} | gold sold: ${goldOz.toFixed(2)} Oz\n`;
 
   /* log record to file */
-  
-
+  fs.appendFile(path.join(__dirname, "purchases.txt"), logLine, (err) => {
+    if (err) {
+      console.error("Error writing to file:", err);
+      return res.status(500).json({ error: "Failed to save purchases" });
+    }
+    /* send gold amount in response */
+    res.json({ goldOz });
+  });
 });
 
 app.get("/", (req, res) => {

@@ -12,7 +12,7 @@ investForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const formData = new FormData(e.currentTarget);
-  const investAmount = formData.get("investmentAmount");
+  const investAmount = Number(formData.get("investmentAmount"));
 
   const response = await fetch("/api/buy", {
     method: "POST",
@@ -28,7 +28,7 @@ investForm.addEventListener("submit", async (e) => {
 
   dialogGoldAmount.textContent = `${goldOz} ${goldOz === 1 ? "ounce" : "ounces"}`;
 
-  dialogInvestAmount.textContent = investAmount;
+  dialogInvestAmount.textContent = investAmount.toFixed(2);
   dialog.showModal();
 });
 
