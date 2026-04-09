@@ -8,16 +8,23 @@ const dialogInvestAmount = document.getElementById("dialog-invest-amount");
 const dialogOkBtn = document.getElementById("dialog-ok-btn");
 
 /* Form handler */
-investForm.addEventListener("submit", (e) => {
+investForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const formData = new FormData(e.currentTarget);
-  const investAmount = Number(formData.get("investmentAmount"));
+  const investAmount = formData.get("investmentAmount");
 
-  if (!livePrice) return;
-  if (!investAmount || investAmount <= 0) return;
+  const response = await fetch("/api/buy", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ investAmountString: investAmount })
+  })
 
-  const goldOz = Number((investAmount / livePrice).toFixed(2));
+  const data = await response.json()
+
+  const goldOz = Number(data.goldOz)
 
   dialogGoldAmount.textContent = `${goldOz} ${goldOz === 1 ? "ounce" : "ounces"}`;
 
