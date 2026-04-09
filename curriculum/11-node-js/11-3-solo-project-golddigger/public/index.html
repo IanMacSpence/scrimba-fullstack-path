@@ -26,7 +26,7 @@
 <body>
     <!-- main wraps the visible card centred on the page -->
     <main>
-        
+
         <h1 class="title">GoldDigger</h1>
         <img src="gold.png" alt="gold bars and nuggets">
 
@@ -48,7 +48,7 @@
                 <!-- Visual £ prefix sitting to the left of the number input -->
                 <div class="currency">£</div>
                 <!-- Number input: only accepts numeric values; "required" blocks form submission if empty -->
-                <input type="number" id="investment-amount" placeholder="100.00" required>
+                <input id="investment-amount" type="number" step="0.01" name="investmentAmount" placeholder="100.00" required>
             </div>
             <!-- Submit button; JavaScript handles the click to calculate and show the summary -->
             <button id="invest-btn" class="invest-btn" aria-label="Invest in gold now">Invest Now!</button>
@@ -59,9 +59,9 @@
         <dialog class="outputs" role="dialog" aria-labelledby="dialog-title" aria-describedby="investment-summary" lang="en">
             <h2>Summary</h2>
             <!-- JavaScript fills this paragraph with the real purchase details (ounces bought, amount spent) -->
-            <p id="investment-summary">You just bought 1.3 ounces (ozt) for £3000. \n You will receive documentation shortly.</p>
+            <p id="investment-summary">You just bought <span id="dialog-gold-amount">1.3 ounces</span> (ozt) for £<span id="dialog-invest-amount">3000</span>. <br> You will receive documentation shortly.</p>
                 <!-- autofocus moves keyboard focus here when the dialog opens so the user can close it straight away -->
-                <button aria-label="Close dialog and return to main page" autofocus>OK</button>
+                <button id="dialog-ok-btn" aria-label="Close dialog and return to main page" autofocus>OK</button>
         </dialog>
 
         <!-- Small print explaining the unit of measurement used for the price -->

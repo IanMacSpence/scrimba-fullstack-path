@@ -34,6 +34,10 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(publicDir, 'index.html'))
 })
 
+app.use((req, res) => {
+    res.status(404).sendFile(path.join(publicDir, '404.html'))
+})
+
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`)
 })
