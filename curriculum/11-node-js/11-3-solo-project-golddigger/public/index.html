@@ -74,6 +74,23 @@
           for £<span id="dialog-invest-amount">3000</span>. <br />
           You will receive documentation shortly.
         </p>
+        <a id="receipt-download-link" class="receipt-link" href="#" hidden
+          >Download PDF receipt</a
+        >
+        <div id="receipt-email-group" class="receipt-email-group" hidden>
+          <label class="dialog-label" for="receipt-email-input">Email receipt</label>
+          <input
+            id="receipt-email-input"
+            class="dialog-input"
+            type="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+          />
+          <button id="send-receipt-btn" class="dialog-secondary-btn" type="button">
+            Send Email
+          </button>
+          <p id="email-status" class="email-status" aria-live="polite"></p>
+        </div>
         <button
           id="dialog-ok-btn"
           aria-label="Close dialog and return to main page"

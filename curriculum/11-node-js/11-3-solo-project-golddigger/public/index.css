@@ -253,6 +253,58 @@ dialog h2 {
     margin-top: 0;
 }
 
+.receipt-link {
+    display: block;
+    margin: 0.75em auto 1em;
+    text-align: center;
+    color: var(--gold);
+    font-size: 0.95em;
+    text-underline-offset: 3px;
+}
+
+.receipt-link:hover {
+    color: #ffe98a;
+}
+
+.receipt-email-group {
+    margin: 0 0 1em;
+}
+
+.dialog-label {
+    position: static;
+    display: block;
+    font-size: 0.85em;
+    margin-bottom: 0.4em;
+    background: transparent;
+    padding: 0;
+}
+
+.dialog-input {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: block;
+    border-left: 2px solid var(--gold);
+    border-radius: 8px;
+    margin: 0 auto 0.6em;
+    padding: 0.75em;
+    font-size: 0.95em;
+}
+
+.dialog-secondary-btn {
+    width: 100%;
+    margin: 0;
+    font-size: 0.95em;
+    padding: 0.6em;
+}
+
+.email-status {
+    min-height: 1.2em;
+    margin: 0.45em 0 0;
+    text-align: center;
+    font-size: 0.85em;
+}
+
 /* The OK button inside the dialog — centred and gold, matching the main button style */
 dialog button {
     width: 50%;

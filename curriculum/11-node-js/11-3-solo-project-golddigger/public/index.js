@@ -1,4 +1,5 @@
 let livePrice;
+let latestReceiptId;
 
 const investForm = document.querySelector("form");
 
@@ -8,6 +9,11 @@ const dialogErrorMessage = document.getElementById("dialog-error-message");
 const dialogSummary = document.getElementById("investment-summary");
 const dialogGoldAmount = document.getElementById("dialog-gold-amount");
 const dialogInvestAmount = document.getElementById("dialog-invest-amount");
+const receiptDownloadLink = document.getElementById("receipt-download-link");
+const receiptEmailGroup = document.getElementById("receipt-email-group");
+const receiptEmailInput = document.getElementById("receipt-email-input");
+const sendReceiptBtn = document.getElementById("send-receipt-btn");
+const emailStatus = document.getElementById("email-status");
 const dialogOkBtn = document.getElementById("dialog-ok-btn");
 const connectionStatusEl = document.getElementById("connection-status");
 const priceEl = document.getElementById("price-display");
@@ -18,17 +24,33 @@ function showBuyError(message) {
   dialog.setAttribute("aria-describedby", "dialog-error-message");
   dialogSummary.hidden = true;
   dialogErrorMessage.hidden = false;
+  receiptDownloadLink.hidden = true;
+  receiptEmailGroup.hidden = true;
   dialogErrorMessage.textContent = message;
   dialog.showModal();
 }
 
-function showBuySuccess(goldOz, investAmount) {
+function showBuySuccess(goldOz, investAmount, receiptUrl, receiptId) {
   dialogTitle.textContent = "Summary";
   dialog.setAttribute("aria-describedby", "investment-summary");
   dialogErrorMessage.hidden = true;
   dialogSummary.hidden = false;
   dialogGoldAmount.textContent = `${goldOz} ${goldOz === 1 ? "ounce" : "ounces"}`;
   dialogInvestAmount.textContent = investAmount.toFixed(2);
+  latestReceiptId = receiptId;
+  emailStatus.textContent = "";
+  receiptEmailInput.value = "";
+
+  if (typeof receiptUrl === "string" && receiptUrl.length > 0) {
+    receiptDownloadLink.href = receiptUrl;
+    receiptDownloadLink.download = `${receiptId || "gold-receipt"}.pdf`;
+    receiptDownloadLink.hidden = false;
+    receiptEmailGroup.hidden = false;
+  } else {
+    receiptDownloadLink.hidden = true;
+    receiptEmailGroup.hidden = true;
+  }
+
   dialog.showModal();
 }
 
@@ -104,7 +126,7 @@ investForm.addEventListener("submit", async (e) => {
       return;
     }
 
-    showBuySuccess(goldOz, investAmount);
+    showBuySuccess(goldOz, investAmount, data.receiptUrl, data.receiptId);
     investForm.reset();
   } catch (err) {
     console.error("Buy request failed:", err);
@@ -119,6 +141,53 @@ investForm.addEventListener("submit", async (e) => {
 /* Close the dialog */
 dialogOkBtn.addEventListener("click", () => {
   dialog.close();
+});
+
+sendReceiptBtn.addEventListener("click", async () => {
+  const email = receiptEmailInput.value.trim();
+
+  if (!latestReceiptId) {
+    emailStatus.textContent = "No receipt available to send.";
+    return;
+  }
+
+  if (!email) {
+    emailStatus.textContent = "Enter an email address first.";
+    return;
+  }
+
+  emailStatus.textContent = "Sending...";
+  sendReceiptBtn.disabled = true;
+
+  try {
+    const response = await fetchWithTimeout("/api/receipts/email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        receiptId: latestReceiptId,
+      }),
+    });
+
+    const data = await parseJsonSafe(response);
+
+    if (!response.ok) {
+      emailStatus.textContent = data.error || "Failed to send email.";
+      return;
+    }
+
+    emailStatus.textContent = "Receipt emailed successfully.";
+  } catch (err) {
+    if (err.name === "AbortError") {
+      emailStatus.textContent = "Email request timed out.";
+    } else {
+      emailStatus.textContent = "Network error. Could not send email.";
+    }
+  } finally {
+    sendReceiptBtn.disabled = false;
+  }
 });
 
 /* Get price */
