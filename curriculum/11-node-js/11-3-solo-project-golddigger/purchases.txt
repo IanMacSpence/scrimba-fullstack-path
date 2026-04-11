@@ -13,3 +13,12 @@
 2026-04-09T22:51:41.239Z | amount paid: £142.00 | price per Oz: £1959.40 | gold sold: 0.07 Oz
 2026-04-09T22:51:46.720Z | amount paid: £14267.00 | price per Oz: £1962.55 | gold sold: 7.27 Oz
 2026-04-09T22:51:57.759Z | amount paid: £1422.99 | price per Oz: £1963.28 | gold sold: 0.72 Oz
+2026-04-11T16:07:04.748Z | amount paid: £12314.00 | price per Oz: £1950.50 | gold sold: 6.31 Oz
+2026-04-11T16:10:51.255Z | amount paid: £12314.00 | price per Oz: £1946.70 | gold sold: 6.33 Oz
+2026-04-11T16:11:26.678Z | amount paid: £12316.00 | price per Oz: £1951.85 | gold sold: 6.31 Oz
+2026-04-11T16:12:58.982Z | amount paid: £111.00 | price per Oz: £1954.12 | gold sold: 0.06 Oz
+2026-04-11T16:26:58.628Z | amount paid: £1324.00 | price per Oz: £1941.32 | gold sold: 0.68 Oz
+2026-04-11T16:28:54.407Z | amount paid: £2222.00 | price per Oz: £1977.69 | gold sold: 1.12 Oz
+2026-04-11T18:41:01.400Z | amount paid: £100.00 | price per Oz: £1929.89 | gold sold: 0.05 Oz
+2026-04-11T18:45:24.915Z | amount paid: £100.00 | price per Oz: £1917.84 | gold sold: 0.05 Oz
+2026-04-11T18:45:59.769Z | amount paid: £100.00 | price per Oz: £1918.14 | gold sold: 0.05 Oz

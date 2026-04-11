@@ -23,12 +23,22 @@ app.use(express.json());
 app.use(express.static(publicDir));
 
 app.get("/api/price", (req, res) => {
-  const livePrice = generatePrice();
+  try {
 
-  res.status(200).json({
-    success: true,
-    price: Number(livePrice.toFixed(2)),
-  });
+    livePrice = generatePrice();
+    
+    res.json({
+      success: true,
+      price: Number(livePrice.toFixed(2)),
+    });
+  } catch (err) {
+    console.error("Error generating price:", err)
+
+    return res.status(500).json({
+      success: false,
+      error: "Failed to generate live price"
+    })
+  }
 });
 
 app.post("/api/buy", (req, res) => {
@@ -36,20 +46,18 @@ app.post("/api/buy", (req, res) => {
   const { investAmountString } = req.body;
   const investAmount = Number(investAmountString);
 
-  if (!livePrice) {
-    res.status(404).json({
+  if (!Number.isFinite(livePrice) || livePrice <= 0) {
+    return res.status(503).json({
       success: false,
-      error: "No live price",
+      error: "Live price unavailable",
     });
-    return;
   }
 
-  if (!investAmount || investAmount <= 0) {
-    res.status(400).json({
+  if (!Number.isFinite(investAmount) || investAmount <= 0) {
+    return res.status(400).json({
       success: false,
-      error: "Investment amount error",
+      error: "Enter a valid investment amount",
     });
-    return;
   }
 
   const goldOz = Number((investAmount / livePrice).toFixed(2));
@@ -60,15 +68,26 @@ app.post("/api/buy", (req, res) => {
   fs.appendFile(path.join(__dirname, "purchases.txt"), logLine, (err) => {
     if (err) {
       console.error("Error writing to file:", err);
-      return res.status(500).json({ error: "Failed to save purchases" });
+
+      return res.status(500).json({
+        success: false,
+        error: "Failed to save purchase",
+      });
     }
     /* send gold amount in response */
-    res.json({ goldOz });
+    return res.json({
+      success: true,
+      goldOz,
+    });
   });
 });
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(publicDir, "index.html"));
+});
+
+app.use("/api", (req, res) => {
+  res.status(404).json({ success: false, error: "API route not found" });
 });
 
 app.use((req, res) => {
